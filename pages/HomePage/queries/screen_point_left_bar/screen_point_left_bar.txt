@@ -1,1 +1,1 @@
-{{screen_point_left_obj.getLeftBarSql(LeftWarningInfo.model.type || 'month')}}
+{{screen_point_left_obj.getLeftBarSql(LeftWarningChart.model.type || 'month')}}

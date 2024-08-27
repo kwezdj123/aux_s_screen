@@ -1,0 +1,83 @@
+{
+  "backgroundColor": "",
+  "borderColor": "",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "",
+  "bottomRow": 49,
+  "boxShadow": "none",
+  "defaultModel": "{\n \"style\":\"{{Header.model.style}}\",\n \"data\":\"{{screen_point_left_search.data}}\",\n \"type\":0\n}",
+  "displayName": "自定义",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "typeOnChange"
+    }
+  ],
+  "events": [
+    "typeOnChange"
+  ],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "42w9ay0do1",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 36,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 24,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "parentColumnSpace": 4.23095703125,
+  "parentId": "e5iken2m5m",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 63,
+  "searchTags": [
+    "external"
+  ],
+  "srcDoc": {
+    "css": "@charset \"UTF-8\";\ninput[type=checkbox] {\n  -webkit-appearance: none;\n  border: 1px solid #999;\n  outline: none;\n  border-radius: 2px;\n  border: 2px solid #007EFF;\n  background: transparent;\n  position: relative;\n  cursor: pointer;\n}\n\n.check-input {\n  width: 18px;\n  height: 18px;\n}\n\ninput.check-input[type=checkbox]:checked {\n  background-color: #007EFF; /* 你可以更改这个颜色为你想要的颜色 */\n}\n\ninput.check-input[type=checkbox]:checked::after {\n  content: \"\";\n  display: block;\n  width: 14px;\n  height: 14px;\n  position: absolute;\n  background-image: url(\"http://cdn.p.superton.cn/aizhiyan/check.svg\");\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n\n.riririr {\n  position: fixed;\n  top: 68px;\n  right: 30px;\n  color: red;\n  z-index: 99;\n  display: flex;\n  gap: 10px;\n}\n.riririr .item {\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n}\n.riririr .item:nth-child(1) {\n  background-image: url(\"http://cdn.p.superton.cn/aizhiyan/video_select_play.png\");\n  background-size: 100% 100%;\n}\n.riririr .item:nth-child(2) {\n  background-image: url(\"http://cdn.p.superton.cn/aizhiyan/video_select_cancel.png\");\n  background-size: 100% 100%;\n}\n\n.dianwei-list {\n  overflow: none;\n}",
+    "html": "<div id=\"app\" class=\"left-top-list\">\n\n\t<div class=\"ttt\">\n\t\t<div class=\"item\" @click=\"type=0\" :class=\"{active:type===0}\">分析点位</div>\n\t\t<div class=\"item\" @click=\"type=1\" :class=\"{active:type===1}\">接入点位</div>\n\t</div>\n\t<input\n\t\t\t\t @keydown.enter=\"enterDown\"\n\t\t\t\t class=\"input\"\n\t\t\t\t @input=\"inputing\"\n\t\t\t\t placeholder=\"输入关键字进行过滤\"\n\t\t\t\t />\n\t<div class=\"dianwei-list\">\n\t\t<ul>\n\t\t\t<li @click=\"showDialog(item)\" v-for=\"(item,index) in listData\" :key=\"index\">\n\t\t\t\t<div class=\"left\">\n\t\t\t\t\t<div class=\"tag\" :class=\"{online:item.state==1}\">{{ item.state == 1 ? '在线' : '离线' }}</div>\n\t\t\t\t\t<div class=\"title\">{{ item.name }}</div>\n\t\t\t\t</div>\n\t\t\t\t<input v-show=\"showCheckBox(item)\" class=\"check-input\" type=\"checkbox\" @change=\"checkbox(item,index)\"/>\n\t\t\t\t<div class=\"right\" @click=\"locationOnClick(item)\" :class=\"{disable: item.lonLat == null}\"></div>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"riririr\" v-show=\"selectList.length>0\">\n\t\t<div class=\"item\" @click=\"playvideos(this)\" ></div>\n\t\t<div class=\"item\" @click=\"cancelSelect(this)\" ></div>\n\t</div>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
+    "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#app\",\n    data() {\n      return {\n        type: 0,\n        listData: [],\n        selectList: []\n      };\n    },\n    mounted() {\n      appsmith.onModelChange(model => {\n        this.switchTheme(model.style);\n        this.listData = JSON.parse(model.data);\n      });\n    },\n    watch: {\n      type(val) {\n        this.selectList = [];\n        this.listData = [];\n        appsmith.triggerEvent(\"typeOnChange\", {\n          type: this.type\n        });\n      }\n    },\n    computed: {\n      showCheckBox() {\n        return function (item) {\n          const index = this.selectList.findIndex(w => w.id == item.id);\n          const a = index > -1 && this.selectList.length == 4;\n          const b = this.selectList.length < 4;\n          return a || b;\n        };\n      }\n    },\n    methods: {\n      playvideos() {},\n      cancelSelect(dom) {\n        console.log(\"cancelSelect\", dom);\n        this.selectList = [];\n      },\n      checkbox(item, index) {\n        const sindex = this.selectList.findIndex(w => w.id == item.id);\n        if (sindex == -1) {\n          this.selectList.push(item);\n        } else {\n          this.selectList.splice(sindex, 1);\n        }\n        console.log(\"checkbox\", item, index, this.selectList);\n      },\n      enterDown(e) {},\n      inputing() {},\n      locationOnClick(data) {},\n      showDialog() {},\n      switchTheme(theme) {\n        var themeLink = document.getElementById('aux-style');\n        themeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n      }\n    }\n  });\n});"
+  },
+  "tags": [
+    "数据展示"
+  ],
+  "theme": "{{appsmith.theme}}",
+  "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
+  "topRow": 5,
+  "type": "CUSTOM_WIDGET",
+  "typeOnChange": "{{screen_point_left_search.run({\n\ttype:type\n});}}",
+  "uncompiledSrcDoc": {
+    "css": "input[type=\"checkbox\"] {\n\t-webkit-appearance: none;\n\tborder: 1px solid #999;\n\toutline: none;\n\tborder-radius: 2px;\n\tborder: 2px solid #007EFF;\n\tbackground: transparent; \n\tposition: relative;\n\tcursor:pointer;\n}\n\n.check-input{\n\twidth:18px;\n\theight:18px;\n}\n\ninput.check-input[type=\"checkbox\"]:checked {\n\tbackground-color: #007EFF; /* 你可以更改这个颜色为你想要的颜色 */\n}\n\ninput.check-input[type=\"checkbox\"]:checked::after {\n\tcontent: \"\";\n\tdisplay: block;\n\twidth: 14px;\n\theight: 14px;\n\tposition: absolute;\n\tbackground-image: url('http://cdn.p.superton.cn/aizhiyan/check.svg');\n\tbackground-position: center;\n\tbackground-repeat: no-repeat;\n\tbackground-size: contain;\n}\n\n.riririr{\n\tposition:fixed;\n\ttop:68px;\n\tright:30px;\n\tcolor:red;\n\tz-index:99;\n\tdisplay:flex;\n\tgap:10px;\n\t.item{\n\t\t\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\t\n\t\tcursor: pointer;\n\t\t&:nth-child(1){\n\t\t\tbackground-image: url(\"http://cdn.p.superton.cn/aizhiyan/video_select_play.png\");\n\t\t\tbackground-size: 100% 100%;\n\t\t}\n\t\t&:nth-child(2){\n\t\t\tbackground-image: url(\"http://cdn.p.superton.cn/aizhiyan/video_select_cancel.png\");\n\t\t\tbackground-size: 100% 100%;\n\t\t}\n\t}\n}\n\n.dianwei-list{\n\toverflow:none\n}",
+    "html": "<div id=\"app\" class=\"left-top-list\">\n\n\t<div class=\"ttt\">\n\t\t<div class=\"item\" @click=\"type=0\" :class=\"{active:type===0}\">分析点位</div>\n\t\t<div class=\"item\" @click=\"type=1\" :class=\"{active:type===1}\">接入点位</div>\n\t</div>\n\t<input\n\t\t\t\t @keydown.enter=\"enterDown\"\n\t\t\t\t class=\"input\"\n\t\t\t\t @input=\"inputing\"\n\t\t\t\t placeholder=\"输入关键字进行过滤\"\n\t\t\t\t />\n\t<div class=\"dianwei-list\">\n\t\t<ul>\n\t\t\t<li @click=\"showDialog(item)\" v-for=\"(item,index) in listData\" :key=\"index\">\n\t\t\t\t<div class=\"left\">\n\t\t\t\t\t<div class=\"tag\" :class=\"{online:item.state==1}\">{{ item.state == 1 ? '在线' : '离线' }}</div>\n\t\t\t\t\t<div class=\"title\">{{ item.name }}</div>\n\t\t\t\t</div>\n\t\t\t\t<input v-show=\"showCheckBox(item)\" class=\"check-input\" type=\"checkbox\" @change=\"checkbox(item,index)\"/>\n\t\t\t\t<div class=\"right\" @click=\"locationOnClick(item)\" :class=\"{disable: item.lonLat == null}\"></div>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"riririr\" v-show=\"selectList.length>0\">\n\t\t<div class=\"item\" @click=\"playvideos(this)\" ></div>\n\t\t<div class=\"item\" @click=\"cancelSelect(this)\" ></div>\n\t</div>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
+    "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#app\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\ttype:0,\n\t\t\t\tlistData:[],\n\t\t\t\tselectList:[]\n\t\t\t};\n\t\t},\n\t\tmounted(){\n\t\t\tappsmith.onModelChange((model) => {\n\t\t\t\tthis.switchTheme(model.style)\n\t\t\t\tthis.listData = JSON.parse(model.data)\n\n\t\t\t})\n\t\t},\n\t\twatch:{\n\t\t\ttype(val){\n\t\t\t\tthis.selectList = []\n\t\t\t\tthis.listData = []\n\t\t\t\tappsmith.triggerEvent(\"typeOnChange\",{type:this.type})\n\t\t\t}\n\t\t},\n\t\tcomputed:{\n\t\t\tshowCheckBox(){\n\t\t\t\treturn function(item){\n\t\t\t\t\tconst index =\tthis.selectList.findIndex(w=>w.id == item.id)\n\t\t\t\t\tconst a = index > -1 && this.selectList.length == 4\n\t\t\t\t\tconst b = this.selectList.length<4\n\t\t\t\t\treturn a || b\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\tmethods: {\n\t\t\tplayvideos(){},\n\t\t\tcancelSelect(dom){\n\t\t\t\tconsole.log(\"cancelSelect\",dom)\n\t\t\t\tthis.selectList = []\n\t\t\t},\n\t\t\tcheckbox(item,index){\n\t\t\t\tconst sindex =\tthis.selectList.findIndex(w=>w.id == item.id)\n\t\t\t\tif (sindex==-1){\n\t\t\t\t\tthis.selectList.push(item)\n\t\t\t\t}else{\n\t\t\t\t\tthis.selectList.splice(sindex,1)\n\t\t\t\t}\n\t\t\t\tconsole.log(\"checkbox\",item,index,this.selectList)\n\t\t\t},\n\t\t\tenterDown(e){\n\n\t\t\t},\n\t\t\tinputing(){},\n\t\t\tlocationOnClick(data){\n\n\t\t\t},\n\t\t\tshowDialog(){},\n\t\t\tswitchTheme(theme) {\n\t\t\t\tvar themeLink = document.getElementById('aux-style');\n\t\t\t\tthemeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n\t\t\t}\n\n\t\t},\n\t});\n});"
+  },
+  "version": 1,
+  "widgetId": "z0mh9rg1bd",
+  "widgetName": "LeftTopList"
+}

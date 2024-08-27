@@ -67,7 +67,7 @@
   "isSearchWildcard": true,
   "isVisible": true,
   "key": "9xik94vnnh",
-  "leftColumn": 11,
+  "leftColumn": 10,
   "levelConfirm": "{{screen_point_central_confirm.run({\n  \"id\": id,\n  \"level\": selectLevel\n}).then(() => {\n  screen_point_central_recent.run();\n});}}",
   "maxDynamicHeight": 9000,
   "message": "{{showAlert(message, 'warning');}}",

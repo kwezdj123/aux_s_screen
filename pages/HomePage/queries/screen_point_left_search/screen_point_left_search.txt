@@ -1,1 +1,1 @@
-{{screen_point_left_search_obj.getSearchSql(LeftTopList.model.type ?? 0,LeftTopList.model.keyword ?? '')}}
+{{screen_point_left_search_obj.getSearchSql(this.params.type ?? LeftTopList.model.type,this.params.keyword ?? "")}}

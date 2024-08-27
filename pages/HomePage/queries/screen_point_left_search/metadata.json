@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "{{screen_point_left_search_obj.getSearchSql(LeftTopList.model.type ?? 0,LeftTopList.model.keyword ?? '')}}",
+      "body": "{{screen_point_left_search_obj.getSearchSql(this.params.type ?? LeftTopList.model.type,this.params.keyword ?? \"\")}}",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "name": "screen_point_left_search",
     "pageId": "HomePage",
     "userSetOnLoad": false

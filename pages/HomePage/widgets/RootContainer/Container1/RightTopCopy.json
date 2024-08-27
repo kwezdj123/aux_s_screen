@@ -1,0 +1,85 @@
+{
+  "backgroundColor": "",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 5,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{\n  \"title\": \"点位情况\",\n\t\"style\":\"{{Header.model.style}}\"\n}",
+  "displayName": "Custom",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [
+    {
+      "key": "onResetClick"
+    }
+  ],
+  "events": [
+    "onResetClick"
+  ],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "npko5z8575",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 31,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "onResetClick": "{{showAlert('Successfully reset!!', '');}}",
+  "parentColumnSpace": 5.657470703125,
+  "parentId": "e5iken2m5m",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "searchTags": [
+    "external"
+  ],
+  "srcDoc": {
+    "css": "",
+    "html": "<div id=\"app\" class=\"box-bg\">\n\t<div class=\"title\">\n\t\t{{ title }}\n\t</div>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
+    "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#app\",\n    data() {\n      return {\n        title: appsmith.model.title\n      };\n    },\n    mounted() {\n      appsmith.onModelChange(model => {\n        if (model) {\n          this.switchTheme(model.style);\n        }\n      });\n    },\n    methods: {\n      switchTheme(theme) {\n        var themeLink = document.getElementById('aux-style');\n        themeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n      }\n    }\n  });\n});"
+  },
+  "tags": [
+    "Display"
+  ],
+  "theme": "{{appsmith.theme}}",
+  "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
+  "topRow": 0,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "\n",
+    "html": "<div id=\"app\" class=\"box-bg\">\n\t<div class=\"title\">\n\t\t{{ title }}\n\t</div>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
+    "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#app\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\ttitle: appsmith.model.title\n\t\t\t};\n\t\t},\n\t\tmounted(){\n\t\t\tappsmith.onModelChange((model)=>{\n\t\t\t\tif (model){\n\t\t\t\t\tthis.switchTheme(model.style)\n\t\t\t\t}\n\t\t\t})\n\t\t},\n\t\tmethods: {\n\t\t\tswitchTheme(theme) {\n\t\t\t\tvar themeLink = document.getElementById('aux-style');\n\t\t\t\tthemeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n\t\t\t}\n\t\t},\n\t});\n});"
+  },
+  "version": 1,
+  "widgetId": "0zpf7l0mne",
+  "widgetName": "RightTopCopy"
+}
