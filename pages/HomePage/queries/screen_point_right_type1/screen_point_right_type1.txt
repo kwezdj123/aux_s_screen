@@ -1,0 +1,8 @@
+SELECT
+	id as value,
+	alarm_type_name as label
+FROM
+	iot_device_alarm_type a 
+WHERE
+	a.isdeleted = '0' 
+	AND a.type = 4

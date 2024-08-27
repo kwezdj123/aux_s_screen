@@ -1,0 +1,16 @@
+{
+  "gitSyncId": "6694e79242e0cf1ce121987e_f8ee64a2-acd6-4924-b501-d8d687ca68c7",
+  "id": "HomePage_testObj",
+  "unpublishedCollection": {
+    "name": "testObj",
+    "pageId": "HomePage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "obj",
+        "value": "{\n  \"age\": 18\n}"
+      }
+    ]
+  }
+}

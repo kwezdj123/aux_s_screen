@@ -1,0 +1,1 @@
+{{screen_point_right_list_obj.handleDynamicSql(RightSelectType.model.selectType)}}

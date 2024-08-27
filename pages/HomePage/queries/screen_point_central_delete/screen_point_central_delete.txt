@@ -1,0 +1,1 @@
+UPDATE `iot_algorithm_alarm` SET isdeleted = '1' AND handle_status = 3 WHERE id = {{this.params.id}}

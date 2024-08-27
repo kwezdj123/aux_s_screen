@@ -1,0 +1,16 @@
+{
+  "gitSyncId": "6694e79242e0cf1ce121987e_87b01f66-d655-43b4-9a4a-93c1a4f4c448",
+  "id": "HomePage_apiObj",
+  "unpublishedCollection": {
+    "name": "apiObj",
+    "pageId": "HomePage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "hearders",
+        "value": "{\n  referer: 'http://127.0.0.1:9527',\n  clientType: 'iot',\n  token: \"\"\n}"
+      }
+    ]
+  }
+}

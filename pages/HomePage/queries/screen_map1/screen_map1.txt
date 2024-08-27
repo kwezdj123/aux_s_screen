@@ -1,0 +1,8 @@
+{{
+screen_point_left_search_obj.getSearchSql(
+	MapView.model?.type || 0,
+	"",
+	"",
+	""
+)
+}}

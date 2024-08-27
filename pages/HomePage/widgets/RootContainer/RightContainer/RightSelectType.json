@@ -1,0 +1,93 @@
+{
+  "backgroundColor": "",
+  "borderColor": "",
+  "borderRadius": "0px",
+  "borderWidth": "",
+  "bottomRow": 67,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "chakan": "{{showModal(EventChart.name);}}",
+  "defaultModel": "{\n\"data\":\"{{\nscreen_point_right_list_obj.getRightListData.data\n}}\",\n\"style\":\"{{Header.model.style}}\"\n}",
+  "displayName": "Custom",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSelect"
+    },
+    {
+      "key": "chakan"
+    },
+    {
+      "key": "switchTheme"
+    }
+  ],
+  "events": [
+    "onSelect",
+    "chakan",
+    "switchTheme"
+  ],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "s39au7tfwu",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 36,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 24,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "onSelect": "{{screen_point_right_list_obj.getRightListData().then(() => {\n  showAlert('获取成功', 'success');\n});}}",
+  "parentColumnSpace": 5.1396484375,
+  "parentId": "lzjnuy6go4",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 63,
+  "searchTags": [
+    "external"
+  ],
+  "srcDoc": {
+    "css": "li {\n  cursor: pointer;\n}\n\n.table-content {\n  overflow-y: scroll;\n}",
+    "html": "<div id=\"right-select-type\" class=\"real-time-warning\">\n\t<div class=\"event-select\">\n\t\t<select @change=\"typeChange\">\n\t\t\t<option\n\t\t\t\t\t\t\tv-for=\"(item,index) in eventTypeList\"\n\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t:value=\"item.value\"\n\t\t\t\t\t\t\t>{{ item.label }}\n\t\t\t</option>\n\t\t</select>\n\t</div>\n\t<div\n\t\t\t class=\"table\"\n\t\t\t v-loading=\"loading\"\n\t\t\t element-loading-text=\"正在加载数据\"\n\t\t\t element-loading-spinner=\"el-icon-loading\"\n\t\t\t element-loading-background=\"rgba(0, 0, 0, 0.6)\"\n\t\t\t >\n\t\t<ul class=\"header\">\n\t\t\t<li style=\"flex:1.2\">预警类型</li>\n\t\t\t<li style=\"width:84px\">预警图片</li>\n\t\t\t<li style=\"flex:2\">预警时间</li>\n\t\t</ul>\n\t\t<div :data=\"listData\" style=\"overflow:hidden\" :class-option=\"scrollOption\" class=\"table-content\">\n\t\t\t<ul>\n\t\t\t\t<li @click=\"chakan(item)\" v-for=\"(item,index) in listData\" :key=\"index\">\n\t\t\t\t\t<div class=\"title\">{{ item.alarmTypeName }}</div>\n\t\t\t\t\t<img class=\"image\" :src=\"item.imgUrl\" :preview-src-list=\"[item.url]\" />\n\t\t\t\t\t<!-- <el-image class=\"image\" :src=\"item.url\" :preview-src-list=\"[item.url]\"></el-image> -->\n\t\t\t\t\t<div class=\"time\">{{ item.alarmDate }}</div>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</div>\n\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/vue-seamless-scroll@latest/dist/vue-seamless-scroll.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n",
+    "js": "appsmith.onReady(() => {\n  Vue.use(vueSeamlessScroll, {\n    componentName: 'seamless-scroll'\n  });\n  new Vue({\n    el: \"#right-select-type\",\n    data() {\n      return {\n        loading: false,\n        eventTypeList: [],\n        listData: [],\n        scrollOption: {\n          step: 0.2\n        },\n        style: appsmith.model.style\n      };\n    },\n    mounted() {\n      console.log(\"mountedmounted\", appsmith.model);\n      appsmith.triggerEvent('onMounted');\n      appsmith.onModelChange(model => {\n        console.log(\"onModelChange\", model);\n        if (model) {\n          // console.log(\"onModelChange\",model.listData)\n          // this.listData = model.listData\n          // this.eventTypeList = model.types\n          const dataModel = JSON.parse(model.data);\n          this.listData = dataModel.listData;\n          this.eventTypeList = dataModel.types;\n          appsmith.triggerEvent('onModelChange', {\n            model: model\n          });\n          this.switchTheme(model.style);\n        }\n      });\n    },\n    methods: {\n      switchTheme(theme) {\n        var themeLink = document.getElementById('aux-style');\n        themeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n        appsmith.triggerEvent(\"switchTheme\");\n      },\n      chakan(data) {\n        console.log('chakan', data);\n        appsmith.updateModel({\n          selectData: data\n        });\n        appsmith.triggerEvent('chakan');\n      },\n      typeChange(e) {\n        const selectType = e.target.selectedOptions[0];\n        console.log('e', selectType.value);\n        appsmith.updateModel({\n          selectType: selectType.value\n        });\n        appsmith.triggerEvent('onSelect', {\n          selectType: selectType.value\n        });\n      }\n    }\n  });\n});"
+  },
+  "switchTheme": "",
+  "tags": [
+    "Display"
+  ],
+  "theme": "{{appsmith.theme}}",
+  "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
+  "topRow": 5,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "li{\n\tcursor:pointer;\n}\n.table-content{\n\toverflow-y:scroll;\n}",
+    "html": "<div id=\"right-select-type\" class=\"real-time-warning\">\n\t<div class=\"event-select\">\n\t\t<select @change=\"typeChange\">\n\t\t\t<option\n\t\t\t\t\t\t\tv-for=\"(item,index) in eventTypeList\"\n\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t:value=\"item.value\"\n\t\t\t\t\t\t\t>{{ item.label }}\n\t\t\t</option>\n\t\t</select>\n\t</div>\n\t<div\n\t\t\t class=\"table\"\n\t\t\t v-loading=\"loading\"\n\t\t\t element-loading-text=\"正在加载数据\"\n\t\t\t element-loading-spinner=\"el-icon-loading\"\n\t\t\t element-loading-background=\"rgba(0, 0, 0, 0.6)\"\n\t\t\t >\n\t\t<ul class=\"header\">\n\t\t\t<li style=\"flex:1.2\">预警类型</li>\n\t\t\t<li style=\"width:84px\">预警图片</li>\n\t\t\t<li style=\"flex:2\">预警时间</li>\n\t\t</ul>\n\t\t<div :data=\"listData\" style=\"overflow:hidden\" :class-option=\"scrollOption\" class=\"table-content\">\n\t\t\t<ul>\n\t\t\t\t<li @click=\"chakan(item)\" v-for=\"(item,index) in listData\" :key=\"index\">\n\t\t\t\t\t<div class=\"title\">{{ item.alarmTypeName }}</div>\n\t\t\t\t\t<img class=\"image\" :src=\"item.imgUrl\" :preview-src-list=\"[item.url]\" />\n\t\t\t\t\t<!-- <el-image class=\"image\" :src=\"item.url\" :preview-src-list=\"[item.url]\"></el-image> -->\n\t\t\t\t\t<div class=\"time\">{{ item.alarmDate }}</div>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</div>\n\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/vue-seamless-scroll@latest/dist/vue-seamless-scroll.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n",
+    "js": "appsmith.onReady(() => {\n\tVue.use(vueSeamlessScroll,{componentName: 'seamless-scroll'})\n\tnew Vue({\n\t\tel: \"#right-select-type\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\tloading:false,\n\t\t\t\teventTypeList:[],\n\t\t\t\tlistData:[],\n\t\t\t\tscrollOption: {\n\t\t\t\t\tstep: 0.2\n\t\t\t\t},\n\t\t\t\tstyle: appsmith.model.style\n\t\t\t};\n\t\t},\n\t\tmounted(){\n\t\t\tconsole.log(\"mountedmounted\",appsmith.model)\n\t\t\tappsmith.triggerEvent('onMounted')\n\t\t\tappsmith.onModelChange(model=>{\n\t\t\t\tconsole.log(\"onModelChange\",model)\n\t\t\t\tif(model){\n\t\t\t\t\t// console.log(\"onModelChange\",model.listData)\n\t\t\t\t\t// this.listData = model.listData\n\t\t\t\t\t// this.eventTypeList = model.types\n\t\t\t\t\tconst dataModel = JSON.parse(model.data)\n\t\t\t\t\tthis.listData = dataModel.listData\n\t\t\t\t\tthis.eventTypeList = dataModel.types\n\t\t\t\t\tappsmith.triggerEvent('onModelChange',{model:model})\n\t\t\t\t\tthis.switchTheme(model.style)\n\t\t\t\t}\n\n\t\t\t})\n\t\t},\n\t\tmethods: {\n\t\t\tswitchTheme(theme) {\n\t\t\t\tvar themeLink = document.getElementById('aux-style');\n\t\t\t\tthemeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n\t\t\t\tappsmith.triggerEvent(\"switchTheme\")\n\t\t\t},\n\t\t\tchakan(data){\n\t\t\t\tconsole.log('chakan',data)\n\t\t\t\tappsmith.updateModel({selectData:data})\n\t\t\t\tappsmith.triggerEvent('chakan')\n\t\t\t},\n\t\t\ttypeChange(e){\n\t\t\t\tconst selectType = e.target.selectedOptions[0]\n\t\t\t\tconsole.log('e',selectType.value)\n\t\t\t\tappsmith.updateModel({selectType:selectType.value})\n\t\t\t\tappsmith.triggerEvent('onSelect',{selectType:selectType.value})\n\t\t\t}\n\t\t},\n\t});\n});\n\n"
+  },
+  "version": 1,
+  "widgetId": "vsnu8240ib",
+  "widgetName": "RightSelectType"
+}

@@ -1,0 +1,32 @@
+{
+  "gitSyncId": "6694e79242e0cf1ce121987e_3f187c7c-1fb3-4ac7-85ea-097439837b46",
+  "id": "HomePage_globalData",
+  "unpublishedCollection": {
+    "name": "globalData",
+    "pageId": "HomePage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "backgroundColor",
+        "value": "\"#18181b\""
+      },
+      {
+        "name": "eventHistory",
+        "value": "[]"
+      },
+      {
+        "name": "currentVideoURL",
+        "value": "\"\""
+      },
+      {
+        "name": "yujingList",
+        "value": "[{\n  title: \"本日\",\n  range: [moment().format(\"yyyy-MM-DD\"), moment().format(\"yyyy-MM-DD\") + \" 23:59:59\"],\n  isSelected: true\n}, {\n  title: \"近7天\",\n  range: [moment().subtract(1, \"weeks\").format(\"yyyy-MM-DD\"), moment().format(\"yyyy-MM-DD\") + \" 23:59:59\"],\n  isSelected: false\n}, {\n  title: \"近30天\",\n  range: [moment().subtract(1, \"months\").format(\"yyyy-MM-DD\"), moment().format(\"yyyy-MM-DD\") + \" 23:59:59\"],\n  isSelected: false\n}]"
+      },
+      {
+        "name": "shipinList",
+        "value": "[{\n  title: \"分析点位\",\n  isSelected: true\n}, {\n  title: \"接入点位\",\n  isSelected: false\n}]"
+      }
+    ]
+  }
+}

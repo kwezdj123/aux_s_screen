@@ -1,0 +1,16 @@
+{
+  "gitSyncId": "6694e79242e0cf1ce121987e_1638e294-a78e-414d-ad7f-b65fb0eb4dd0",
+  "id": "HomePage_screen_point_event_obj",
+  "unpublishedCollection": {
+    "name": "screen_point_event_obj",
+    "pageId": "HomePage",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "alarmParam",
+        "value": "{\n  id: -1,\n  alarmLevel: -1\n}"
+      }
+    ]
+  }
+}

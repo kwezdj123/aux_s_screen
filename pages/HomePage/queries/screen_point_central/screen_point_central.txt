@@ -1,0 +1,8 @@
+SELECT COUNT(1) AS videoCount FROM iot_device  LEFT JOIN iot_product  ON iot_device.product_id = iot_product.id
+LEFT JOIN iot_product_category ON iot_product.product_category_id = iot_product_category.id
+WHERE iot_device.isdeleted = 0 AND iot_product_category.name = '视频监控';
+
+SELECT IFNULL(SUM(IF(handle_status = '1' OR handle_status = '2', 1, 0)), 0) AS unHandledCount,
+count(1) AS totalCount
+FROM iot_algorithm_alarm WHERE isdeleted = 0 AND parent_id = 0
+AND DATE_FORMAT(createdate, '%Y-%m-%d') = DATE_FORMAT('NOW()', '%Y-%m-%d');

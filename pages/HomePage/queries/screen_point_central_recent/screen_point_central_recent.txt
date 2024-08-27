@@ -1,0 +1,20 @@
+SELECT
+	a.id,
+	a.device_id as deviceId,
+	DATE_FORMAT( a.alarm_date, '%Y-%m-%d %H:%i:%s' ) AS alarmDate,
+	a.total_time AS totalTime,
+	b.alarm_type_name AS typeName,
+	b.alarm_level AS alarmLevel,
+	a.device_name AS deviceName,
+	a.alarm_level as handleLevel,
+	a.img_url as imgUrl,
+	a.address AS address 
+FROM
+	`iot_algorithm_alarm` a
+	LEFT JOIN iot_device_alarm_type b ON a.alarm_type_id = b.id 
+WHERE
+	a.id = (
+		SELECT
+		MAX( id ) 
+		FROM
+		`iot_algorithm_alarm` WHERE isdeleted = '0' AND alarm_level IS NULL) 

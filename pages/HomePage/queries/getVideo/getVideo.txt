@@ -1,0 +1,4 @@
+{
+	"id": {{this.params.deviceId}},
+	"playType": "hls"
+}

@@ -1,0 +1,17 @@
+SELECT
+	a.id AS id,
+	a.device_id as deviceId,
+	idat.alarm_type_name AS alarmTypeName,
+	a.img_url AS imgUrl,
+	DATE_FORMAT( a.alarm_date, '%Y-%m-%d %H:%i' ) AS alarmDate,
+	a.total_time AS totalTime,
+	idat.alarm_level AS alarmLevel,
+	a.device_name AS deviceName,
+	a.alarm_level AS handleLevel,
+	a.address AS address 
+FROM
+	iot_algorithm_alarm a
+	LEFT JOIN iot_device_alarm_type idat ON a.alarm_type_id = idat.id
+	WHERE a.isdeleted = '0' AND a.parent_id = 0 
+	AND a.alarm_date BETWEEN DATE_SUB(NOW(), INTERVAL 300 DAY) AND NOW()
+	AND a.device_id = {{this.params.deviceId ? this.params.deviceId : -1}} ORDER BY a.alarm_date DESC 

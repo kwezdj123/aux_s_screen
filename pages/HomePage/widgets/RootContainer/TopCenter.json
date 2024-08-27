@@ -1,0 +1,73 @@
+{
+  "backgroundColor": "",
+  "borderColor": "",
+  "borderRadius": "0px",
+  "borderWidth": "1",
+  "bottomRow": 16,
+  "boxShadow": "none",
+  "defaultModel": "{\n\"data\":\"{{screen_point_central_obj.getCentralData.data}}\",\n\"style\":\"{{Header.model.style}}\"\n}",
+  "displayName": "Custom",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "events": [],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "il74eqf9zl",
+  "leftColumn": 11,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 36,
+  "mobileLeftColumn": 12,
+  "mobileRightColumn": 35,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "parentColumnSpace": 29.078125,
+  "parentId": "t74yajv9nb",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 53,
+  "searchTags": [
+    "external"
+  ],
+  "srcDoc": {
+    "css": "",
+    "html": "<div id=\"streetai-top-center\" class=\"streetai-top-center\" ref=\"top-center\">\n\t<ul v-for=\"(item,index) in dataList\" :key=\"index\">\n\t\t<li>\n\t\t\t<div class=\"value\">\n\t\t\t\t{{ item.value }}\n\t\t\t\t<span>{{ item.unit }}</span>\n\t\t\t</div>\n\t\t\t<div class=\"title\">{{ item.label }}</div>\n\t\t</li>\n\t</ul>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
+    "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#streetai-top-center\",\n    data() {\n      return {\n        dataList: []\n      };\n    },\n    mounted() {\n      appsmith.onModelChange(model => {\n        if (model) {\n          const modelData = JSON.parse(appsmith.model.data);\n          this.dataList = modelData.dataList;\n          console.log(\"FFFFF\", this.dataList);\n          this.switchTheme(model.style);\n        }\n      });\n    },\n    methods: {\n      switchTheme(theme) {\n        var themeLink = document.getElementById('aux-style');\n        themeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n      }\n    }\n  });\n});"
+  },
+  "tags": [
+    "Display"
+  ],
+  "theme": "{{appsmith.theme}}",
+  "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
+  "topRow": 8,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "",
+    "html": "<div id=\"streetai-top-center\" class=\"streetai-top-center\" ref=\"top-center\">\n\t<ul v-for=\"(item,index) in dataList\" :key=\"index\">\n\t\t<li>\n\t\t\t<div class=\"value\">\n\t\t\t\t{{ item.value }}\n\t\t\t\t<span>{{ item.unit }}</span>\n\t\t\t</div>\n\t\t\t<div class=\"title\">{{ item.label }}</div>\n\t\t</li>\n\t</ul>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
+    "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#streetai-top-center\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\tdataList: [],\n\t\t\t};\n\t\t},\n\t\tmounted(){\n\n\t\t\tappsmith.onModelChange((model)=>{\n\t\t\t\tif (model){\n\t\t\t\t\tconst modelData = JSON.parse(appsmith.model.data)\n\t\t\t\t\tthis.dataList = modelData.dataList\n\t\t\t\t\tconsole.log(\"FFFFF\",this.dataList)\n\t\t\t\t\tthis.switchTheme(model.style)\n\t\t\t\t}\n\t\t\t})\n\t\t},\n\t\tmethods: {\n\t\t\tswitchTheme(theme) {\n\t\t\t\tvar themeLink = document.getElementById('aux-style');\n\t\t\t\tthemeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n\t\t\t}\n\t\t},\n\t});\n});"
+  },
+  "version": 1,
+  "widgetId": "sikpg4h47c",
+  "widgetName": "TopCenter"
+}

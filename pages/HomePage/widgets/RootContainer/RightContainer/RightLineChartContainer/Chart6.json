@@ -1,0 +1,188 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowScroll": false,
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 31,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "chartData": {
+    "xmkrfifale": {
+      "data": "{{screen_point_right_chart.data}}",
+      "gradientColor": "[ {\n            \"offset\": 0,\n            \"color\": \"rgb(128, 255, 165)\"\n          },\n          {\n            \"offset\": 1,\n            \"color\": \"rgb(1, 191, 236)\"\n          }]",
+      "isGradient": true,
+      "label": "{\n        \"show\": true,\n        \"position\":\"top\",\n        \"color\":\"white\"\n      }",
+      "seriesName": "2023"
+    }
+  },
+  "chartName": "Sales Report",
+  "chartType": "CUSTOM_ECHART",
+  "customEChartConfig": "{{ ((chartType) => ( screen_point_right_chart_obj.getSeries.data))(Chart6.chartType) }}",
+  "customFusionChartConfig": {
+    "dataSource": {
+      "chart": {
+        "alignCaptionWithCanvas": 1,
+        "canvasPadding": "0",
+        "caption": "Sales Report",
+        "captionAlignment": "center",
+        "captionFontColor": "#231F20",
+        "captionFontSize": "24",
+        "captionPadding": "20",
+        "chartBottomMargin": "10",
+        "chartLeftMargin": "20",
+        "chartRightMargin": "40",
+        "chartTopMargin": "10",
+        "labelFontColor": "#716e6e",
+        "labelFontSize": "12",
+        "legendIconAlpha": "100",
+        "legendIconBgAlpha": "100",
+        "legendIconSides": "4",
+        "legendPosition": "top",
+        "theme": "fusion",
+        "xAxisName": "Product Line",
+        "xAxisNameFontColor": "#716e6e",
+        "xAxisNameFontSize": "14",
+        "yAxisName": "Revenue($)",
+        "yAxisNameFontColor": "#716e6e",
+        "yAxisNameFontSize": "14",
+        "yAxisValueFontColor": "#716e6e",
+        "yAxisValueFontSize": "12"
+      },
+      "data": [
+        {
+          "label": "Product1",
+          "value": 20000
+        },
+        {
+          "label": "Product2",
+          "value": 40000
+        },
+        {
+          "label": "Product3",
+          "value": 60000
+        }
+      ]
+    },
+    "type": "column2d"
+  },
+  "displayName": "Chart",
+  "dynamicBindingPathList": [
+    {
+      "key": "customEChartConfig"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "chartData.xmkrfifale.data"
+    }
+  ],
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.dfffacd2f1d58b018712b35563ae6a31.svg",
+  "indicator": [
+    {
+      "max": 6500,
+      "name": "Sales"
+    },
+    {
+      "max": 16000,
+      "name": "Administration"
+    },
+    {
+      "max": 30000,
+      "name": "Information Technology"
+    },
+    {
+      "max": 38000,
+      "name": "Customer Support"
+    },
+    {
+      "max": 52000,
+      "name": "Development"
+    },
+    {
+      "max": 25000,
+      "name": "Marketing"
+    }
+  ],
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "nt64gd4fnb",
+  "labelOrientation": "auto",
+  "leftColumn": 2,
+  "minWidth": 450,
+  "mobileBottomRow": 36,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 26,
+  "mobileTopRow": 4,
+  "needsErrorInfo": true,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "parentColumnSpace": 4.372802734375,
+  "parentId": "wymtf2jjg5",
+  "parentRowSpace": 10,
+  "radarData": [
+    {
+      "name": "Allocated Budget",
+      "value": [
+        4200,
+        3000,
+        20000,
+        35000,
+        50000,
+        18000
+      ]
+    },
+    {
+      "name": "Actual Spending",
+      "value": [
+        5000,
+        14000,
+        28000,
+        26000,
+        42000,
+        21000
+      ]
+    }
+  ],
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "searchTags": [
+    "graph",
+    "visuals",
+    "visualisations"
+  ],
+  "showDataPointLabel": false,
+  "tags": [
+    "数据展示"
+  ],
+  "thumbnailSVG": "/static/media/thumbnail.98fb19b2c4f99671c0888284cf939f3a.svg",
+  "topRow": 5,
+  "type": "CHART_WIDGET",
+  "version": 1,
+  "widgetId": "7fqn969uye",
+  "widgetName": "Chart6",
+  "xAxisColor": "#ffffff",
+  "xAxisName": "Product Line",
+  "yAxisColor": "#ffffff",
+  "yAxisName": ""
+}

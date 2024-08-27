@@ -1,0 +1,14 @@
+SELECT
+	a.id,
+	a.algorithm_name AS "algorithmName"
+FROM
+	iot_algorithm a
+	LEFT JOIN iot_algorithm_alarm b ON a.id = b.algorithm_id 
+	AND b.isdeleted = 0 
+WHERE
+	a.isdeleted = 0 
+GROUP BY
+	a.id 
+HAVING
+	COUNT(
+	b.id > 0)

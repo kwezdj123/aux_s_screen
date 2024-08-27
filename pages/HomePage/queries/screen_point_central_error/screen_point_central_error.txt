@@ -1,0 +1,1 @@
+UPDATE `iot_algorithm_alarm` SET mark = 2 AND handle_status = 6 WHERE id = {{this.params.id}}

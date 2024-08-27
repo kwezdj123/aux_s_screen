@@ -1,0 +1,101 @@
+{
+  "backgroundColor": "transparent",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "0px",
+  "borderWidth": "1",
+  "bottomRow": 55,
+  "boxShadow": "none",
+  "close": "{{closeModal(EventChart.name);}}",
+  "defaultModel": "{\n\"data\":\"{{RightSelectType.model.selectData}}\",\n\"history\":\"{{globalData.eventHistory}}\",\n\"videoUrl\":\"{{globalData.currentVideoURL}}\"\n}",
+  "deleteEvent": "{{screen_point_central_delete.run({\n  \"id\": id\n}).then(() => {\n  closeModal(EventChart.name);\n});}}",
+  "displayName": "自定义",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "close"
+    },
+    {
+      "key": "falseAlarm"
+    },
+    {
+      "key": "levelConfrim"
+    },
+    {
+      "key": "deleteEvent"
+    },
+    {
+      "key": "getHistory"
+    }
+  ],
+  "events": [
+    "close",
+    "falseAlarm",
+    "levelConfrim",
+    "deleteEvent",
+    "getHistory"
+  ],
+  "falseAlarm": "{{screen_point_central_error.run({\n  \"id\": id\n}).then(() => {\n  closeModal(EventChart.name);\n});}}",
+  "getHistory": "{{globalData.getEventHistory(deviceId);\nglobalData.getVideoURL(deviceId);}}",
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "kvia0r7vwf",
+  "leftColumn": 0,
+  "levelConfrim": "{{screen_point_central_confirm.run({\n  \"id\": id,\n  \"level\": selectLevel\n}).then(() => {\n  closeModal(EventChart.name);\n});}}",
+  "maxDynamicHeight": 34,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 17,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 10,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "parentColumnSpace": 6.9375,
+  "parentId": "6tqhm2sltk",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "searchTags": [
+    "external"
+  ],
+  "shouldScrollContents": true,
+  "srcDoc": {
+    "css": "iframe {\n  flex: 1;\n  margin: 40px;\n  margin-top: 0;\n}\n\n.table {\n  padding: 30px;\n  padding-top: 0;\n  padding-left: 60px;\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  height: 0;\n}\n.table .header {\n  padding: 10px 0;\n  display: flex;\n  width: calc(100% - 60px);\n  height: fit-content;\n  justify-content: space-between;\n}\n.table .header .item {\n  text-align: center;\n}\n.table .content {\n  width: calc(100% - 60px);\n  flex: 1;\n  height: 0;\n  overflow-y: scroll;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.table .content .row {\n  display: flex;\n  text-align: center;\n}\n.table .content .row .item {\n  padding: 10px 0;\n}",
+    "html": "<script src=\"//cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n<script src=\"https://cdn.jsdelivr.net/npm/hls.js@1\"></script>\n<div id=\"app\" class=\"event-dialog\" v-if=\"data\">\n\t<div class=\"top\">\n\t\t<div class=\"title\">\n\t\t\t<i>事件处理</i>\n\t\t\t<img  class=\"close\" @click=\"close\" src=\"http://cdn.p.superton.cn/aizhiyan/close2.png\"/>\n\t\t</div>\n\t</div>\n\t<ul class=\"tabs\">\n\t\t<li class=\"\" @click=\"changeTabs(0)\" :class=\"{active:tabIndex===0}\">告警事件</li>\n\t\t<li class=\"\" @click=\"changeTabs(1)\" :class=\"{active:tabIndex===1}\">历史事件</li>\n\t\t<li class=\"\" @click=\"changeTabs(2)\" :class=\"{active:tabIndex===2}\">实时视频</li>\n\t</ul>\n\t<div class=\"content\" v-show=\"tabIndex===0\">\n\t\t<img :src=\"data.imgUrl\"/>\n\t\t<ul class=\"right\">\n\t\t\t<li>告警时间：{{data.alarmDate}}</li>\n\t\t\t<li>持续时间：{{data.totalTime || \"-\"}}</li>\n\t\t\t<li>事件类别：{{data.alarmTypeName}}</li>\n\t\t\t<li>S点负责人：{{data.alarmTypeName}}</li>\n\t\t\t<li>基地名称：{{data.alarmTypeName}}</li>\n\t\t\t<li>S点名称：{{data.alarmTypeName}}</li>\n\t\t\t<li>事件等级：\n\t\t\t\t<select @change=\"onSelect\" v-if=\"data.handleLevel == null\">\n\t\t\t\t\t<option>待确认</option>\n\t\t\t\t\t<option>一级</option>\n\t\t\t\t\t<option>二级</option>\n\t\t\t\t\t<option>三级</option>\n\t\t\t\t</select>\n\t\t\t\t<div v-else>\n\t\t\t\t\t<span v-if=\"data.handleLevel==1\">一级</span>\n\t\t\t\t\t<span v-else-if=\"data.handleLevel==2\">二级</span>\n\t\t\t\t\t<span v-else-if=\"data.handleLevel==3\">三级</span>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t\t<li>告警时间：{{data.address || \"-\"}}</li>\n\t\t</ul>\n\t</div>\n\t<ul class=\"button-group footer-bar\" v-show=\"tabIndex===0\" v-if=\"data.handleLevel == null\">\n\t\t<button class=\"danger\" @click=\"falseAlarm\">误报</button>\n\t\t<button class=\"danger\" @click=\"deleteEvent\" >删除</button>\n\t\t<button class=\"primary\" @click=\"levelConfirm\">确认</button>\n\t</ul>\n\t<div v-show=\"tabIndex===1\" class=\"table\">\n\t\t<div class=\"header\">\n\t\t\t<div class=\"item\" :style=\"{flex:getFlex(index)}\" v-for=\"(item,index) in headerList\" :key=\"index\">{{item}}</div>\n\t\t</div>\n\t\t<div class=\"content\">\n\t\t\t<div class=\"row\" v-for=\"(item,index) in eventList\" :key=\"index\">\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(0)}\">{{index+1}}</div>\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(1)}\">{{item.alarmTypeName}}</div>\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(2)}\">{{item.deviceName}}</div>\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(3)}\">{{item.alarmDate}}</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<iframe :src=\"videoURL\" v-show=\"tabIndex===2\"></iframe>\n</div>\n\n",
+    "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#app\",\n    data() {\n      return {\n        tabIndex: 0,\n        data: null,\n        pre: \"http://test.superton.cn/videoplayer/?url=\",\n        videoURL: \"\",\n        headerList: [\"序号\", \"事件类型\", \"点位名称\", \"触发时间\"],\n        eventList: null\n      };\n    },\n    mounted() {\n      appsmith.onModelChange(model => {\n        this.data = JSON.parse(model.data);\n        console.log(\"history\", model.history);\n        this.getVideoURL(model.videoUrl);\n        this.eventList = JSON.parse(model.history) || [];\n        this.getVideoURL();\n      });\n    },\n    watch: {\n      tabIndex(val) {\n        if (val == 2) {\n          this.getVideoURL();\n        }\n      }\n    },\n    methods: {\n      changeTabs(index) {\n        this.tabIndex = index;\n        if (index == 1) {\n          this.eventList = [];\n          appsmith.triggerEvent(\"getHistory\", {\n            deviceId: this.data.deviceId\n          });\n        }\n      },\n      getFlex(index) {\n        switch (index) {\n          case 0:\n            return 1;\n          case 1:\n            return 2;\n          case 2:\n            return 2;\n          case 3:\n            return 2;\n        }\n      },\n      playVideo(url) {\n        var video = document.getElementById('video');\n        console.log(\"Hls\", Hls);\n        if (Hls.isSupported()) {\n          var hls = new Hls();\n          hls.loadSource(url);\n          hls.attachMedia(video);\n          hls.on(Hls.Events.MANIFEST_PARSED, function () {\n            console.log(\"MANIFEST_PARSED\");\n            video.play();\n          });\n        }\n      },\n      getVideoURL(url) {\n        if (url) {\n          this.videoURL = this.pre + encodeURIComponent(url);\n        }\n        console.log(\"this.videoURLthis.videoURL\", this.videoURL);\n      },\n      close() {\n        appsmith.triggerEvent(\"close\");\n      },\n      onSelect(e) {\n        const value = e.target.value;\n        console.log(\"onSelect\", value);\n        let handleLevel = null;\n        switch (value) {\n          case \"一级\":\n            handleLevel = 1;\n            break;\n          case \"二级\":\n            handleLevel = 1;\n            break;\n          case \"三级\":\n            handleLevel = 1;\n            break;\n        }\n        this.data.selectLevel = handleLevel;\n      },\n      falseAlarm() {\n        appsmith.triggerEvent(\"falseAlarm\", this.data);\n      },\n      levelConfirm() {\n        appsmith.triggerEvent(\"levelConfrim\", this.data);\n      },\n      deleteEvent() {\n        appsmith.triggerEvent(\"deleteEvent\", this.data);\n      }\n    }\n  });\n});"
+  },
+  "tags": [
+    "数据展示"
+  ],
+  "theme": "{{appsmith.theme}}",
+  "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
+  "topRow": 0,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "iframe{\n\tflex:1;\n\tmargin:40px;\n\tmargin-top:0;\n}\n\n.table{\n\tpadding:30px;\n\tpadding-top:0;\n\tpadding-left:60px;\n\tdisplay:flex;\n\tflex-direction:column;\n\tflex:1;\n\theight:0;\n\t.header{\n\t\tpadding:10px 0;\n\t\tdisplay:flex;\n\t\twidth:calc(100% - 60px);\n\t\theight:fit-content;\n\t\tjustify-content:space-between;\n\t\t.item{\n\t\t\ttext-align:center\n\t\t}\n\t}\n\t.content{\n\t\twidth:calc(100% - 60px);\n\t\tflex:1;\n\t\theight:0;\n\t\toverflow-y:scroll;\n\t\tdisplay:flex;\n\t\tflex-direction:column;\n\t\tgap:10px;\n\t\t.row{\n\t\t\tdisplay:flex;\n\t\t\ttext-align:center;\t\n\t\t\t.item{\n\t\t\t\tpadding:10px 0;\n\t\t\t}\n\t\t}\n\t}\n}",
+    "html": "<script src=\"//cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n<script src=\"https://cdn.jsdelivr.net/npm/hls.js@1\"></script>\n<div id=\"app\" class=\"event-dialog\" v-if=\"data\">\n\t<div class=\"top\">\n\t\t<div class=\"title\">\n\t\t\t<i>事件处理</i>\n\t\t\t<img  class=\"close\" @click=\"close\" src=\"http://cdn.p.superton.cn/aizhiyan/close2.png\"/>\n\t\t</div>\n\t</div>\n\t<ul class=\"tabs\">\n\t\t<li class=\"\" @click=\"changeTabs(0)\" :class=\"{active:tabIndex===0}\">告警事件</li>\n\t\t<li class=\"\" @click=\"changeTabs(1)\" :class=\"{active:tabIndex===1}\">历史事件</li>\n\t\t<li class=\"\" @click=\"changeTabs(2)\" :class=\"{active:tabIndex===2}\">实时视频</li>\n\t</ul>\n\t<div class=\"content\" v-show=\"tabIndex===0\">\n\t\t<img :src=\"data.imgUrl\"/>\n\t\t<ul class=\"right\">\n\t\t\t<li>告警时间：{{data.alarmDate}}</li>\n\t\t\t<li>持续时间：{{data.totalTime || \"-\"}}</li>\n\t\t\t<li>事件类别：{{data.alarmTypeName}}</li>\n\t\t\t<li>S点负责人：{{data.alarmTypeName}}</li>\n\t\t\t<li>基地名称：{{data.alarmTypeName}}</li>\n\t\t\t<li>S点名称：{{data.alarmTypeName}}</li>\n\t\t\t<li>事件等级：\n\t\t\t\t<select @change=\"onSelect\" v-if=\"data.handleLevel == null\">\n\t\t\t\t\t<option>待确认</option>\n\t\t\t\t\t<option>一级</option>\n\t\t\t\t\t<option>二级</option>\n\t\t\t\t\t<option>三级</option>\n\t\t\t\t</select>\n\t\t\t\t<div v-else>\n\t\t\t\t\t<span v-if=\"data.handleLevel==1\">一级</span>\n\t\t\t\t\t<span v-else-if=\"data.handleLevel==2\">二级</span>\n\t\t\t\t\t<span v-else-if=\"data.handleLevel==3\">三级</span>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t\t<li>告警时间：{{data.address || \"-\"}}</li>\n\t\t</ul>\n\t</div>\n\t<ul class=\"button-group footer-bar\" v-show=\"tabIndex===0\" v-if=\"data.handleLevel == null\">\n\t\t<button class=\"danger\" @click=\"falseAlarm\">误报</button>\n\t\t<button class=\"danger\" @click=\"deleteEvent\" >删除</button>\n\t\t<button class=\"primary\" @click=\"levelConfirm\">确认</button>\n\t</ul>\n\t<div v-show=\"tabIndex===1\" class=\"table\">\n\t\t<div class=\"header\">\n\t\t\t<div class=\"item\" :style=\"{flex:getFlex(index)}\" v-for=\"(item,index) in headerList\" :key=\"index\">{{item}}</div>\n\t\t</div>\n\t\t<div class=\"content\">\n\t\t\t<div class=\"row\" v-for=\"(item,index) in eventList\" :key=\"index\">\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(0)}\">{{index+1}}</div>\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(1)}\">{{item.alarmTypeName}}</div>\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(2)}\">{{item.deviceName}}</div>\n\t\t\t\t<div class=\"item\" :style=\"{flex:getFlex(3)}\">{{item.alarmDate}}</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<iframe :src=\"videoURL\" v-show=\"tabIndex===2\"></iframe>\n</div>\n\n",
+    "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#app\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\ttabIndex:0,\n\t\t\t\tdata:null,\n\t\t\t\tpre:\"http://test.superton.cn/videoplayer/?url=\",\n\t\t\t\tvideoURL:\"\",\n\t\t\t\theaderList:[\"序号\",\"事件类型\",\"点位名称\",\"触发时间\"],\n\t\t\t\teventList:null\n\t\t\t};\n\t\t},\n\t\tmounted(){\n\t\t\tappsmith.onModelChange((model)=>{\n\t\t\t\tthis.data = JSON.parse(model.data)\n\t\t\t\tconsole.log(\"history\",model.history)\n\t\t\t\tthis.getVideoURL(model.videoUrl)\n\t\t\t\tthis.eventList = JSON.parse(model.history) || []\n\t\t\t\tthis.getVideoURL()\n\t\t\t})\n\t\t},\n\n\t\twatch:{\n\t\t\ttabIndex(val){\n\t\t\t\tif (val == 2){\n\t\t\t\t\tthis.getVideoURL()\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\tmethods: {\n\t\t\tchangeTabs(index){\n\t\t\t\tthis.tabIndex = index\n\t\t\t\tif (index == 1){\n\t\t\t\t\tthis.eventList = []\n\t\t\t\t\tappsmith.triggerEvent(\"getHistory\",{deviceId:this.data.deviceId})\n\t\t\t\t}\n\t\t\t},\n\t\t\tgetFlex(index){\n\t\t\t\tswitch(index){\n\t\t\t\t\tcase 0:\n\t\t\t\t\t\treturn 1;\n\t\t\t\t\tcase 1:\n\t\t\t\t\t\treturn 2;\n\t\t\t\t\tcase 2:\n\t\t\t\t\t\treturn 2;\n\t\t\t\t\tcase 3:\n\t\t\t\t\t\treturn 2;\n\t\t\t\t}\n\t\t\t},\n\t\t\tplayVideo(url){\n\t\t\t\tvar video = document.getElementById('video');\n\t\t\t\tconsole.log(\"Hls\",Hls)\n\t\t\t\tif(Hls.isSupported()) {\n\t\t\t\t\tvar hls = new Hls();\n\t\t\t\t\thls.loadSource(url);\n\t\t\t\t\thls.attachMedia(video);\n\t\t\t\t\thls.on(Hls.Events.MANIFEST_PARSED,function() {\n\t\t\t\t\t\tconsole.log(\"MANIFEST_PARSED\")\n\t\t\t\t\t\tvideo.play();\n\t\t\t\t\t});\n\t\t\t\t}\n\t\t\t},\n\t\t\tgetVideoURL(url){\n\t\t\t\tif(url){\n\t\t\t\t\tthis.videoURL = this.pre + encodeURIComponent(url)\t\n\t\t\t\t}\n\t\t\t\tconsole.log(\"this.videoURLthis.videoURL\",this.videoURL)\n\t\t\t},\n\t\t\tclose(){\n\t\t\t\tappsmith.triggerEvent(\"close\")\n\t\t\t},\n\t\t\tonSelect(e){\n\t\t\t\tconst value = e.target.value\n\t\t\t\tconsole.log(\"onSelect\",value)\n\t\t\t\tlet handleLevel = null\n\t\t\t\tswitch(value){\n\t\t\t\t\tcase \"一级\":\n\t\t\t\t\t\thandleLevel = 1\n\t\t\t\t\t\tbreak\n\t\t\t\t\tcase \"二级\":\n\t\t\t\t\t\thandleLevel = 1\n\t\t\t\t\t\tbreak\n\t\t\t\t\tcase \"三级\":\n\t\t\t\t\t\thandleLevel = 1\n\t\t\t\t\t\tbreak\n\t\t\t\t}\n\t\t\t\tthis.data.selectLevel = handleLevel\n\t\t\t},\n\t\t\tfalseAlarm(){\n\t\t\t\tappsmith.triggerEvent(\"falseAlarm\",this.data)\n\t\t\t},\n\t\t\tlevelConfirm(){\n\t\t\t\tappsmith.triggerEvent(\"levelConfrim\",this.data)\n\t\t\t},\n\t\t\tdeleteEvent(){\n\t\t\t\tappsmith.triggerEvent(\"deleteEvent\",this.data)\n\t\t\t}\n\t\t},\n\t});\n});"
+  },
+  "version": 1,
+  "widgetId": "ntf1mw11my",
+  "widgetName": "EventContainer"
+}
