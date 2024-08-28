@@ -1,6 +1,6 @@
 export default {
 	getLeftPieSql(type) {
-		let columns = 'SELECT count(1) as `value`, b.alarm_type_name as `name`, b.id as typeId '
+		let columns = 'SELECT count(1) as `y`, b.alarm_type_name as `x`, b.id as typeId '
 		let table = 'FROM iot_algorithm_alarm a LEFT JOIN iot_device_alarm_type b ON a.alarm_type_id = b.id and b.isdeleted = 0 '
 		let condition = 'WHERE a.isdeleted = 0 AND a.parent_id = 0 '
 		let concatSql = ''
@@ -30,9 +30,9 @@ export default {
 
 	getLeftBarSql(type) {
 		if (type === 'month') {
-			return "SELECT count(1) as `value`, DATE_FORMAT(a.alarm_date, '%m月%d日') as label FROM iot_algorithm_alarm a  WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m-%d')"
+			return "SELECT count(1) as `y`, DATE_FORMAT(a.alarm_date, '%m月%d日') as x FROM iot_algorithm_alarm a  WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m-%d')"
 		} else if (type === 'year') {
-			return "SELECT count(1) as `value`, DATE_FORMAT(a.alarm_date, '%m月') as label FROM iot_algorithm_alarm a  WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y') = DATE_FORMAT(NOW(), '%Y') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m')"
+			return "SELECT count(1) as `y`, DATE_FORMAT(a.alarm_date, '%m月') as x FROM iot_algorithm_alarm a  WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y') = DATE_FORMAT(NOW(), '%Y') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m')"
 		} else {
 			return ""
 		}

@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "name": "screen_point_left_pie",
     "pageId": "HomePage",
     "userSetOnLoad": false

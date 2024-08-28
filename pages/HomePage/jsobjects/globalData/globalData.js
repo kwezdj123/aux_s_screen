@@ -1,6 +1,7 @@
 export default {
 	backgroundColor:"#18181b",
 	eventHistory:[],
+	//事件弹框视频地址
 	currentVideoURL:"",
 	async getEventHistory(deviceId){
 		console.log("getHistory deviceId",deviceId)
@@ -8,6 +9,19 @@ export default {
 		const data = await screen_point_history.run({deviceId:deviceId})
 		console.log("getHistory data",data)
 		this.eventHistory = data
+	},
+	//左侧播放视频地址列表
+	videoList:[],
+	async getVideosUrlList(points){
+		let tempList = []
+		for(let point of points){
+			await getVideo.run({deviceId:point.id}).then(res=>{
+				console.log("getVideoURL",res)
+				point.videoURL = `https://test.superton.cn/videoplayer/?url=${encodeURIComponent(res.data)}`
+				tempList.push(point)
+			})
+		}
+		this.videoList = tempList
 	},
 	getVideoURL(deviceId){
 		console.log("getVideoURL deviceId",deviceId)

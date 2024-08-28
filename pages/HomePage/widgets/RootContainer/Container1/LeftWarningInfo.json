@@ -3,7 +3,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 48,
+  "bottomRow": 44,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "defaultModel": "{\n  \"title\": \"预警情况\",\n\t\"style\":\"{{Header.model.style}}\",\n\t\"type\":\"month\"\n}",
   "displayName": "Custom",
@@ -72,7 +72,7 @@
   ],
   "theme": "{{appsmith.theme}}",
   "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
-  "topRow": 43,
+  "topRow": 40,
   "type": "CUSTOM_WIDGET",
   "typeOnChange": "{{screen_point_left_bar.run({\n  type: type\n});\nscreen_point_left_pie.run({\n  type: type\n});}}",
   "uncompiledSrcDoc": {

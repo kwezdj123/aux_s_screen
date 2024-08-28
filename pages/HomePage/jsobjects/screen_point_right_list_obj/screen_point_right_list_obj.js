@@ -6,9 +6,9 @@ export default {
 		let condition = "WHERE a.isdeleted = '0' AND a.parent_id = 0 "
 		sql = sql + joinTable + condition
 		if (id) {
-			sql += `AND a.alarm_type_id = ${id} ORDER BY a.alarm_date DESC LIMIT 10`
+			sql += `AND a.alarm_type_id = ${id} ORDER BY a.alarm_date DESC LIMIT 20`
 		}	else {
-			sql += "ORDER BY a.alarm_date DESC LIMIT 10"
+			sql += "ORDER BY a.alarm_date DESC LIMIT 20"
 		}
 		return sql
 	},
@@ -19,7 +19,7 @@ export default {
 			RightSelectType.model.selectType = types[0].value	
 		}
 		console.log("RightSelectType.model.selectType",RightSelectType.model.selectType)
-		const listData = await screen_point_right_list1.run({type:RightSelectType.model.selectType})
+		const listData = await screen_point_right_list.run({type:RightSelectType.model.selectType})
 		return {
 			"selectType":RightSelectType.model.selectType || types[0].value,
 			"types": types,

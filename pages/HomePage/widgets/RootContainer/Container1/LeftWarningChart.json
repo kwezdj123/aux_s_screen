@@ -3,14 +3,14 @@
   "allowScroll": false,
   "animateLoading": true,
   "borderRadius": "0px",
-  "bottomRow": 74,
+  "bottomRow": 71,
   "boxShadow": "none",
   "chartData": {
     "kz9xwna79w": {
-      "data": "{{screen_point_left_obj.getLeftBar.data}}",
+      "data": "{{screen_point_left_bar.data}}",
       "gradientColor": "[\n {\n    \"color\": \"#83bff6\",\n    \"offset\": \"1\"\n  },\n  {\n    \"color\": \"#188df0\",\n    \"offset\": \"0\"\n  }\n]",
       "isGradient": true,
-      "label": "",
+      "label": "{\n\"color\":\"#fff\",\n\"show\":true,\n\"position\":\"top\"\n}",
       "seriesName": "预警数量"
     }
   },
@@ -83,7 +83,7 @@
   "dynamicTriggerPathList": [],
   "flexVerticalAlignment": "start",
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "grid": "{\n\"top\":30,\n\"left\":50,\n\"bottom\":50\n}",
+  "grid": "{\n\"top\":30,\n\"left\":30,\n\"bottom\":50,\n\"right\":\"20\"\n}",
   "hideCard": false,
   "iconSVG": "/static/media/icon.dfffacd2f1d58b018712b35563ae6a31.svg",
   "indicator": [
@@ -167,13 +167,13 @@
     "visuals",
     "visualisations"
   ],
-  "setAdaptiveYMin": true,
+  "setAdaptiveYMin": false,
   "showDataPointLabel": true,
   "tags": [
     "数据展示"
   ],
   "thumbnailSVG": "/static/media/thumbnail.98fb19b2c4f99671c0888284cf939f3a.svg",
-  "topRow": 52,
+  "topRow": 48,
   "type": "CHART_WIDGET",
   "version": 1,
   "widgetId": "xlqn12rdxo",
