@@ -30,6 +30,11 @@ export default {
 			this.currentVideoURL = res.data
 		})
 	},
+	//选中点位，在地图上显示
+	currentLocationData:'',
+	setCurrentLocationData(data){
+		this.currentLocationData = data
+	},
 	yujingList:[
 		{
 			title: "本日",

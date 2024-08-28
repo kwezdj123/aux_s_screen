@@ -1,22 +1,16 @@
 {
   "backgroundColor": "",
   "borderColor": "#E0DEDE",
-  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderRadius": "0px",
   "borderWidth": "1",
   "bottomRow": 84,
-  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "boxShadow": "none",
   "close": "{{closeModal(VideosDialog.name);}}",
   "defaultModel": "{\n\"style\":\"{{Header.model.style}}\",\n\"videos\":\"{{globalData.videoList}}\"\n}",
   "displayName": "自定义",
   "dynamicBindingPathList": [
     {
       "key": "theme"
-    },
-    {
-      "key": "borderRadius"
-    },
-    {
-      "key": "boxShadow"
     },
     {
       "key": "defaultModel"

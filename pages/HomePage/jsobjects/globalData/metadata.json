@@ -24,6 +24,10 @@
         "value": "[]"
       },
       {
+        "name": "currentLocationData",
+        "value": "''"
+      },
+      {
         "name": "yujingList",
         "value": "[{\n  title: \"本日\",\n  range: [moment().format(\"yyyy-MM-DD\"), moment().format(\"yyyy-MM-DD\") + \" 23:59:59\"],\n  isSelected: true\n}, {\n  title: \"近7天\",\n  range: [moment().subtract(1, \"weeks\").format(\"yyyy-MM-DD\"), moment().format(\"yyyy-MM-DD\") + \" 23:59:59\"],\n  isSelected: false\n}, {\n  title: \"近30天\",\n  range: [moment().subtract(1, \"months\").format(\"yyyy-MM-DD\"), moment().format(\"yyyy-MM-DD\") + \" 23:59:59\"],\n  isSelected: false\n}]"
       },

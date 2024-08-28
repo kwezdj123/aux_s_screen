@@ -5,5 +5,13 @@ export default {
 			dataList:res,
 
 		}
+	},
+	async getEventList(begin,end){
+		let res = await screen_point_01.run({
+			orgCode:"iot",
+			beginTime:begin || '',
+			endTime:end || ''
+		})
+		return res
 	}
 }

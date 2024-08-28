@@ -1,0 +1,44 @@
+select
+        a.id AS "id",
+        a.device_id AS "deviceId",
+        a.device_name AS "deviceName",
+        a.car_num AS "carNum",
+        a.img_url AS "imgUrl",
+        a.alarm_type_id AS "alarmTypeId",
+        a.algorithm_id AS "algorithmId",
+        a.start_time AS "startTime",
+        a.alarm_date AS "alarmDate",
+        a.total_time AS "totalTime",
+        a.handle_status AS "handleStatus",
+        a.handle_reason AS "handleReason",
+        a.parent_id AS "parentId",
+        a.reid AS "reid",
+        a.find_type AS "findType",
+        a.address AS "address",
+        a.description AS "description",
+        a.autonomous_closure_time AS "autonomousClosureTime",
+        a.mark AS "mark",
+        a.pic_addr AS "picAddr",
+        a.is_play_sound AS "isPlaySound",
+        a.play_error_reason AS "playErrorReason",
+        a.video_url AS "videoUrl",
+        a.handle_url AS "handleUrl",
+        a.handle_remark AS "handleRemark",
+        a.handle_date AS "handleDate",
+        a.alarm_level AS "alarmLevel"
+        ,b.lon_lat AS "lonLat"
+        ,idat.alarm_type_name AS "alarmTypeName"
+        ,ia.algorithm_name AS "algorithmName"
+        from
+            iot_algorithm_alarm a
+                LEFT JOIN iot_device b ON a.device_id = b.id
+                AND b.isdeleted = 0
+                LEFT JOIN iot_product c ON b.product_id = c.id
+                AND c.isdeleted = 0
+                LEFT JOIN iot_product_link d ON d.product_id = c.id
+                LEFT JOIN iot_device_alarm_type idat ON a.alarm_type_id = idat.id
+                LEFT JOIN iot_algorithm ia ON a.algorithm_id = ia.id
+        WHERE
+            a.isdeleted = '0' AND a.parent_id = 0
+          AND d.org_code LIKE concat( {{this.params.orgCode ? this.params.orgCode : ''}}, '%' )
+          AND a.alarm_date BETWEEN {{this.params.beginTime}} AND {{this.params.endTime}}
