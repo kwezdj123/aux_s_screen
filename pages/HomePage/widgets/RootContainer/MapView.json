@@ -1,10 +1,10 @@
 {
-  "backgroundColor": "#FFFFFF",
-  "borderColor": "#E0DEDE",
-  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "backgroundColor": "",
+  "borderColor": "",
+  "borderRadius": "0px",
   "borderWidth": "1",
   "bottomRow": 113,
-  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "boxShadow": "none",
   "clickMarker": "{{showAlert(name, '');}}",
   "defaultModel": "{\n\"videoList\":\"{{screen_map_obj.getMapData.data}}\",\n\"eventList\":\"{{screen_map_obj.getEventList.data}}\",\n\"alarmData\":\"{{screen_point_central_recent.data}}\",\n\"selectLevel\":null,\n\"style\":\"{{Header.model.style}}\",\n\"type\":0,\n\"yujingList\":\"{{globalData.yujingList}}\",\n\"shipinList\":\"{{globalData.shipinList}}\",\n\"currentLocationData\":\"{{globalData.currentLocationData}}\"\n}",
   "deleteEvent": "{{screen_point_central_delete.run({\n  \"id\": id\n}).then(() => {\n  showAlert('删除成功！', 'success');\n});}}",
@@ -12,12 +12,6 @@
   "dynamicBindingPathList": [
     {
       "key": "theme"
-    },
-    {
-      "key": "borderRadius"
-    },
-    {
-      "key": "boxShadow"
     },
     {
       "key": "defaultModel"

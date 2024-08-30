@@ -9,6 +9,21 @@
       "jsArguments": [
         {
           "name": "deviceId"
+        },
+        {
+          "name": "pagesize"
+        },
+        {
+          "name": "pagenum"
+        },
+        {
+          "name": "startTime"
+        },
+        {
+          "name": "endTime"
+        },
+        {
+          "name": "deviceName"
         }
       ],
       "paginationType": "NONE",

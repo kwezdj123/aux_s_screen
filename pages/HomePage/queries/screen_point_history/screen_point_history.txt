@@ -13,5 +13,8 @@ FROM
 	iot_algorithm_alarm a
 	LEFT JOIN iot_device_alarm_type idat ON a.alarm_type_id = idat.id
 	WHERE a.isdeleted = '0' AND a.parent_id = 0 
-	AND a.alarm_date BETWEEN DATE_SUB(NOW(), INTERVAL 300 DAY) AND NOW()
-	AND a.device_id = {{this.params.deviceId ? this.params.deviceId : -1}} ORDER BY a.alarm_date DESC 
+	AND a.alarm_date BETWEEN {{this.params.startTime ?? "1900-01-01"}} AND {{this.params.endTime ?? "2099-12-31"}}
+	AND a.device_name LIKE concat("%", {{this.params.deviceName ?? ""}}, "%")
+	AND a.device_id = {{this.params.deviceId ? this.params.deviceId : -1}}
+	ORDER BY a.alarm_date DESC 
+	LIMIT {{this.params.pagestart ?? 0}}, {{this.params.pagesize ?? 10}}

@@ -1,1 +1,1 @@
-{{screen_point_right_list_obj.handleDynamicSql(RightSelectType.model.selectType)}}
+{{screen_point_right_list_obj.handleDynamicSql(RightSelectType.model.selectType,this.params.pagesize ?? 20,this.params.pagenum ?? 1)}}

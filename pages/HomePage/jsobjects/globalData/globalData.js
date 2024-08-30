@@ -3,12 +3,22 @@ export default {
 	eventHistory:[],
 	//事件弹框视频地址
 	currentVideoURL:"",
-	async getEventHistory(deviceId){
+	async getEventHistory(deviceId,pagesize,pagenum,startTime,endTime,deviceName){
 		console.log("getHistory deviceId",deviceId)
 		// this.history = data
-		const data = await screen_point_history.run({deviceId:deviceId})
+		pagenum = pagenum ?? 1
+		pagesize = pagesize ?? 10
+		const data = await screen_point_history.run({
+			deviceId:deviceId,
+			pagesize:pagesize,
+			pagestart:(pagenum-1)*pagesize,
+			startTime:startTime,
+			endTime:endTime,
+			deviceName:deviceName || ''
+		})
 		console.log("getHistory data",data)
 		this.eventHistory = data
+		return data
 	},
 	//左侧播放视频地址列表
 	videoList:[],

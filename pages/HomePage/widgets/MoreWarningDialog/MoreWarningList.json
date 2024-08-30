@@ -1,0 +1,82 @@
+{
+  "backgroundColor": "transparent",
+  "borderColor": "",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "",
+  "bottomRow": 81,
+  "boxShadow": "none",
+  "defaultModel": "{\n\"dataList\":\"{{screen_point_right_list_obj.getRightListData.data}}\"\n}",
+  "displayName": "自定义",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [
+    {
+      "key": "onResetClick"
+    }
+  ],
+  "events": [
+    "onResetClick"
+  ],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "1aexcor2ww",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 30,
+  "mobileLeftColumn": 21,
+  "mobileRightColumn": 44,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "onResetClick": "{{showAlert('Successfully reset!!', '');}}",
+  "parentColumnSpace": 23.125,
+  "parentId": "qciyu08fdm",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "searchTags": [
+    "external"
+  ],
+  "srcDoc": {
+    "css": "",
+    "html": "<script src=\"//cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n<script src=\"https://cdn.jsdelivr.net/npm/hls.js@1\"></script>\n<div id=\"app\" class=\"event-dialog\" v-if=\"dataList\">\n\t<div class=\"top\">\n\t\t<div class=\"title\">\n\t\t\t<i>事件列表</i>\n\t\t\t<img  class=\"close\" @click=\"close\" src=\"http://cdn.p.superton.cn/aizhiyan/close2.png\"/>\n\t\t</div>\n\t</div>\n\n</div>\n\n",
+    "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#app\",\n    data() {\n      return {\n        dataList: JSON.parse(appsmith.model.dataList)\n      };\n    },\n    methods: {\n      chakan() {},\n      close() {}\n    }\n  });\n});"
+  },
+  "tags": [
+    "数据展示"
+  ],
+  "theme": "{{appsmith.theme}}",
+  "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
+  "topRow": 0,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": ".full-warning-list{\n\n}",
+    "html": "<script src=\"//cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n<script src=\"https://cdn.jsdelivr.net/npm/hls.js@1\"></script>\n<div id=\"app\" class=\"event-dialog\" v-if=\"dataList\">\n\t<div class=\"top\">\n\t\t<div class=\"title\">\n\t\t\t<i>事件列表</i>\n\t\t\t<img  class=\"close\" @click=\"close\" src=\"http://cdn.p.superton.cn/aizhiyan/close2.png\"/>\n\t\t</div>\n\t</div>\n\n</div>\n\n",
+    "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#app\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\tdataList:JSON.parse(appsmith.model.dataList)\n\t\t\t};\n\t\t},\n\t\tmethods: {\n\t\t\tchakan(){},\n\t\t\tclose(){}\n\t\t},\n\t});\n});"
+  },
+  "version": 1,
+  "widgetId": "icggqeli7e",
+  "widgetName": "MoreWarningList"
+}

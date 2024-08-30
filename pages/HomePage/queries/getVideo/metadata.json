@@ -30,7 +30,7 @@
       "httpMethod": "POST",
       "httpVersion": "HTTP11",
       "paginationType": "NONE",
-      "path": "/server/superton-iot-server/iotDevice/getVideoUrl",
+      "path": "http://{{apiObj.hearders.host}}/superton-iot-server/iotDevice/getVideoUrl",
       "pluginSpecifiedTemplates": [
         {
           "value": true
@@ -54,6 +54,9 @@
       },
       {
         "key": "headers[1].value"
+      },
+      {
+        "key": "path"
       }
     ],
     "executeOnLoad": false,

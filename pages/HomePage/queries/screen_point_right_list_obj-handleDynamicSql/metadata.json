@@ -9,6 +9,12 @@
       "jsArguments": [
         {
           "name": "id"
+        },
+        {
+          "name": "pagesize"
+        },
+        {
+          "name": "pagenum"
         }
       ],
       "paginationType": "NONE",

@@ -9,7 +9,7 @@
     "variables": [
       {
         "name": "hearders",
-        "value": "{\n  referer: 'http://127.0.0.1:9527',\n  clientType: 'iot',\n  token: \"\"\n}"
+        "value": "{\n  referer: 'http://127.0.0.1:9527',\n  clientType: 'iot',\n  token: '',\n  host: 'test.superton.cn/auxapi'\n}"
       }
     ]
   }
