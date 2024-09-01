@@ -40,6 +40,7 @@ export default {
 			this.currentVideoURL = res.data
 		})
 	},
+	selectType:[],
 	//选中点位，在地图上显示
 	currentLocationData:'',
 	setCurrentLocationData(data){

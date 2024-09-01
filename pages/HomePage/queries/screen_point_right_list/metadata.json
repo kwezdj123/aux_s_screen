@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "{{screen_point_right_list_obj.handleDynamicSql(RightSelectType.model.selectType,this.params.pagesize ?? 20,this.params.pagenum ?? 1)}}",
+      "body": "{{screen_point_right_list_obj.handleDynamicSql(this.params.type,this.params.pagesize ?? 20,this.params.pagenum ?? 1)}}",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

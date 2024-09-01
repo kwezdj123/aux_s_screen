@@ -14,21 +14,23 @@ export default {
 		return sql
 	},
 
-	async getRightListData(pagesize,pagenum){
+	async getRightListData(type,pagesize,pagenum,startTime,endTime){
 		const types = await screen_point_right_type.run()
-		if (!RightSelectType.model.selectType){
-			RightSelectType.model.selectType = types[0].value	
-		}
-		console.log("RightSelectType.model.selectType",RightSelectType.model.selectType)
+		// if (!RightSelectType.model.selectType){
+		// RightSelectType.model.selectType = types[0].value	
+		// }
+		// console.log("RightSelectType.model.selectType",RightSelectType.model.selectType)
 		const listData = await screen_point_right_list.run(
 			{
-				type:RightSelectType.model.selectType,
+				type:type ?? types[0].value,
 				pagesize:pagesize,
-				pagenum:pagenum
+				pagenum:pagenum,
+				startTime:startTime,
+				endTime:endTime
 			}
 		)
 		return {
-			"selectType":RightSelectType.model.selectType || types[0].value,
+			// "selectType":RightSelectType.model.selectType || types[0].value,
 			"types": types,
 			"listData":listData
 		}

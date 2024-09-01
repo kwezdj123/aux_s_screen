@@ -8,10 +8,19 @@
       "encodeParamsToggle": true,
       "jsArguments": [
         {
+          "name": "type"
+        },
+        {
           "name": "pagesize"
         },
         {
           "name": "pagenum"
+        },
+        {
+          "name": "startTime"
+        },
+        {
+          "name": "endTime"
         }
       ],
       "paginationType": "NONE",
