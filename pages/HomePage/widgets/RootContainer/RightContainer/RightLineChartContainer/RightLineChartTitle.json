@@ -45,7 +45,7 @@
     "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
     "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
   },
-  "openDialog": "{{showModal(YJQSChartDialog.name);}}",
+  "openDialog": "{{showModal(PJCZSCQSChartDialog.name);}}",
   "parentColumnSpace": 5.1083984375,
   "parentId": "wymtf2jjg5",
   "parentRowSpace": 10,
