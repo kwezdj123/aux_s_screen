@@ -13,18 +13,14 @@
     }
   ],
   "dynamicHeight": "FIXED",
-  "dynamicPropertyPathList": [
-    {
-      "key": "onResetClick"
-    }
-  ],
+  "dynamicPropertyPathList": [],
   "dynamicTriggerPathList": [
     {
-      "key": "onResetClick"
+      "key": "openDialog"
     }
   ],
   "events": [
-    "onResetClick"
+    "openDialog"
   ],
   "hideCard": false,
   "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
@@ -49,7 +45,7 @@
     "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
     "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
   },
-  "onResetClick": "{{showAlert('Successfully reset!!', '');}}",
+  "openDialog": "{{showModal(YJQSChartDialog.name);}}",
   "parentColumnSpace": 5.1083984375,
   "parentId": "wymtf2jjg5",
   "parentRowSpace": 10,

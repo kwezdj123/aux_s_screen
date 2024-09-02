@@ -16,15 +16,30 @@ export default {
 
 	async getRightListData(type,pagesize,pagenum,startTime,endTime){
 		const types = await screen_point_right_type.run()
-		// if (!RightSelectType.model.selectType){
-		// RightSelectType.model.selectType = types[0].value	
-		// }
-		// console.log("RightSelectType.model.selectType",RightSelectType.model.selectType)
+		console.log("type,pagesize",type,pagesize,pagenum,startTime,endTime)
 		const listData = await screen_point_right_list.run(
 			{
 				type:type ?? types[0].value,
-				pagesize:pagesize,
-				pagenum:pagenum,
+				pagesize:pagesize ?? 20,
+				pagenum:pagenum ?? 1,
+				startTime:startTime,
+				endTime:endTime
+			}
+		)
+		return {
+			// "selectType":RightSelectType.model.selectType || types[0].value,
+			"types": types,
+			"listData":listData
+		}
+	},
+	async getMoreRealTimeListData(type,pagesize,pagenum,startTime,endTime){
+		const types = await screen_point_right_type.run()
+		console.log("type,pagesize",type,pagesize,pagenum,startTime,endTime)
+		const listData = await screen_point_right_list.run(
+			{
+				type:type ?? types[0].value,
+				pagesize:pagesize ?? 20,
+				pagenum:pagenum ?? 1,
 				startTime:startTime,
 				endTime:endTime
 			}

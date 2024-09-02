@@ -1,0 +1,185 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowScroll": false,
+  "animateLoading": true,
+  "borderRadius": "0px",
+  "bottomRow": 41,
+  "boxShadow": "none",
+  "chartData": {
+    "kz9xwna79w": {
+      "data": "{{screen_point_left_bar.data}}",
+      "gradientColor": "[\n {\n    \"color\": \"#83bff6\",\n    \"offset\": \"1\"\n  },\n  {\n    \"color\": \"#188df0\",\n    \"offset\": \"0\"\n  }\n]",
+      "isGradient": true,
+      "label": "{\n\"color\":\"#fff\",\n\"show\":true,\n\"position\":\"top\"\n}",
+      "seriesName": "预警数量"
+    }
+  },
+  "chartName": "",
+  "chartType": "COLUMN_CHART",
+  "customEChartConfig": "{{\n{\n  \"dataset\": {\n    \"source\": [\n      [\n        \"Day\",\n        \"Baidu\",\n        \"Google\",\n        \"Bing\"\n      ],\n      [\n        \"Mon\",\n        620,\n        120,\n        60\n      ],\n      [\n        \"Tue\",\n        732,\n        132,\n        72\n      ],\n      [\n        \"Wed\",\n        701,\n        101,\n        71\n      ],\n      [\n        \"Thu\",\n        734,\n        134,\n        74\n      ],\n      [\n        \"Fri\",\n        1090,\n        290,\n        190\n      ],\n      [\n        \"Sat\",\n        1130,\n        230,\n        130\n      ],\n      [\n        \"Sun\",\n        1120,\n        220,\n        110\n      ]\n    ]\n  },\n  \"tooltip\": {\n    \"trigger\": \"axis\",\n    \"axisPointer\": {\n      \"type\": \"shadow\"\n    }\n  },\n  \"title\": {\n    \"text\": \"Search Engine Usage\",\n    \"left\": \"center\",\n    \"textStyle\": {\n      \"width\": 200,\n      \"overflow\": \"truncate\"\n    }\n  },\n  \"legend\": {\n    \"top\": 40,\n    \"type\": \"scroll\"\n  },\n  \"grid\": {\n    \"left\": 15,\n    \"right\": 15,\n    \"bottom\": 30,\n    \"top\": 100,\n    \"containLabel\": true\n  },\n  \"xAxis\": [\n    {\n      \"type\": \"category\"\n    }\n  ],\n  \"yAxis\": [\n    {\n      \"type\": \"value\"\n    }\n  ],\n  \"series\": [\n    {\n      \"type\": \"bar\",\n      \"stack\": \"Search Engine\"\n    },\n    {\n      \"type\": \"bar\",\n      \"stack\": \"Search Engine\"\n    },\n    {\n      \"type\": \"bar\",\n      \"stack\": \"Search Engine\"\n    }\n  ]\n}\n}}",
+  "customFusionChartConfig": {
+    "dataSource": {
+      "chart": {
+        "alignCaptionWithCanvas": 1,
+        "canvasPadding": "0",
+        "caption": "Sales Report",
+        "captionAlignment": "center",
+        "captionFontColor": "#231F20",
+        "captionFontSize": "24",
+        "captionPadding": "20",
+        "chartBottomMargin": "10",
+        "chartLeftMargin": "20",
+        "chartRightMargin": "40",
+        "chartTopMargin": "10",
+        "labelFontColor": "#716e6e",
+        "labelFontSize": "12",
+        "legendIconAlpha": "100",
+        "legendIconBgAlpha": "100",
+        "legendIconSides": "4",
+        "legendPosition": "top",
+        "theme": "fusion",
+        "xAxisName": "Product Line",
+        "xAxisNameFontColor": "#716e6e",
+        "xAxisNameFontSize": "14",
+        "yAxisName": "Revenue($)",
+        "yAxisNameFontColor": "#716e6e",
+        "yAxisNameFontSize": "14",
+        "yAxisValueFontColor": "#716e6e",
+        "yAxisValueFontSize": "12"
+      },
+      "data": [
+        {
+          "label": "Product1",
+          "value": 20000
+        },
+        {
+          "label": "Product2",
+          "value": 40000
+        },
+        {
+          "label": "Product3",
+          "value": 60000
+        }
+      ]
+    },
+    "type": "column2d"
+  },
+  "displayName": "图表",
+  "dynamicBindingPathList": [
+    {
+      "key": "customEChartConfig"
+    },
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "chartData.kz9xwna79w.data"
+    }
+  ],
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "grid": "{\n\"top\":30,\n\"left\":30,\n\"bottom\":50,\n\"right\":\"20\"\n}",
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.dfffacd2f1d58b018712b35563ae6a31.svg",
+  "indicator": [
+    {
+      "max": 6500,
+      "name": "Sales"
+    },
+    {
+      "max": 16000,
+      "name": "Administration"
+    },
+    {
+      "max": 30000,
+      "name": "Information Technology"
+    },
+    {
+      "max": 38000,
+      "name": "Customer Support"
+    },
+    {
+      "max": 52000,
+      "name": "Development"
+    },
+    {
+      "max": 25000,
+      "name": "Marketing"
+    }
+  ],
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "993h8vy23y",
+  "labelOrientation": "auto",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 82,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 50,
+  "needsErrorInfo": true,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "onDataPointClick": "{{}}",
+  "parentColumnSpace": 4.23095703125,
+  "parentId": "wkez35mb6f",
+  "parentRowSpace": 10,
+  "radarData": [
+    {
+      "name": "Allocated Budget",
+      "value": [
+        4200,
+        3000,
+        20000,
+        35000,
+        50000,
+        18000
+      ]
+    },
+    {
+      "name": "Actual Spending",
+      "value": [
+        5000,
+        14000,
+        28000,
+        26000,
+        42000,
+        21000
+      ]
+    }
+  ],
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "searchTags": [
+    "graph",
+    "visuals",
+    "visualisations"
+  ],
+  "setAdaptiveYMin": false,
+  "showDataPointLabel": true,
+  "tags": [
+    "数据展示"
+  ],
+  "thumbnailSVG": "/static/media/thumbnail.98fb19b2c4f99671c0888284cf939f3a.svg",
+  "topRow": 5,
+  "type": "CHART_WIDGET",
+  "version": 1,
+  "widgetId": "frye2xi6ld",
+  "widgetName": "LeftWarningChartCopy",
+  "xAxisColor": "#ffffff",
+  "xAxisName": "",
+  "yAxisColor": "#ffffff",
+  "yAxisName": ""
+}

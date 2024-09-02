@@ -1,15 +1,15 @@
 {
   "animateLoading": true,
-  "backgroundColor": "transparent",
+  "backgroundColor": "#18181b",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 279,
+  "bottomRow": 474,
   "boxShadow": "none",
   "canEscapeKeyClose": true,
   "canOutsideClickClose": true,
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 840,
+      "bottomRow": 430,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -29,11 +29,11 @@
       "isDisabled": false,
       "isLoading": false,
       "isVisible": true,
-      "key": "igjlntnyyb",
+      "key": "03it844pmg",
       "leftColumn": 0,
       "maxDynamicHeight": 9000,
       "minDynamicHeight": 4,
-      "minHeight": 842,
+      "minHeight": 430,
       "minWidth": 450,
       "mobileBottomRow": 240,
       "mobileLeftColumn": 0,
@@ -48,7 +48,7 @@
         "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
       },
       "parentColumnSpace": 1,
-      "parentId": "wl3ifnbyv4",
+      "parentId": "bk3j98mzl5",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -57,8 +57,8 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "qciyu08fdm",
-      "widgetName": "Canvas9"
+      "widgetId": "wkez35mb6f",
+      "widgetName": "Canvas10"
     }
   ],
   "detachFromLayout": true,
@@ -68,22 +68,22 @@
       "key": "borderRadius"
     }
   ],
-  "dynamicHeight": "FIXED",
+  "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
-  "height": 842,
+  "height": 430,
   "hideCard": false,
   "iconSVG": "/static/media/icon.47fe8500526372db96cb58a82187ffeb.svg",
   "isCanvas": true,
   "isDeprecated": false,
   "isLoading": false,
-  "key": "tt5oasink8",
-  "leftColumn": 19,
+  "key": "ztjipxxfa0",
+  "leftColumn": 21,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 24,
-  "mobileBottomRow": 63,
-  "mobileLeftColumn": 19,
-  "mobileRightColumn": 43,
-  "mobileTopRow": 39,
+  "mobileBottomRow": 68,
+  "mobileLeftColumn": 21,
+  "mobileRightColumn": 45,
+  "mobileTopRow": 44,
   "needsErrorInfo": false,
   "onCanvasUI": {
     "disableParentSelection": true,
@@ -96,7 +96,7 @@
   "parentId": "0",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
-  "rightColumn": 43,
+  "rightColumn": 45,
   "searchTags": [
     "dialog",
     "popup",
@@ -107,10 +107,10 @@
     "布局"
   ],
   "thumbnailSVG": "/static/media/thumbnail.c20e144182d9af35cde59e39d9afe632.svg",
-  "topRow": 39,
+  "topRow": 44,
   "type": "MODAL_WIDGET",
   "version": 2,
-  "widgetId": "wl3ifnbyv4",
-  "widgetName": "MoreWarningDialog",
-  "width": 1419.3
+  "widgetId": "bk3j98mzl5",
+  "widgetName": "YJQSChartDialog",
+  "width": 834
 }

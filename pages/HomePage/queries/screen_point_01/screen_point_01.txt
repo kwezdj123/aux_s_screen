@@ -41,4 +41,5 @@ select
         WHERE
             a.isdeleted = '0' AND a.parent_id = 0
           AND d.org_code LIKE concat( {{this.params.orgCode ? this.params.orgCode : ''}}, '%' )
-          AND a.alarm_date BETWEEN {{this.params.beginTime}} AND {{this.params.endTime}}
+          AND a.alarm_date BETWEEN {{this.params.beginTime ?? '1900-01-01'}} AND {{this.params.endTime ?? '2099-01-01'}}
+					
