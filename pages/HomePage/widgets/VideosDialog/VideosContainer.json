@@ -1,8 +1,8 @@
 {
   "backgroundColor": "",
-  "borderColor": "#E0DEDE",
+  "borderColor": "",
   "borderRadius": "0px",
-  "borderWidth": "1",
+  "borderWidth": "0",
   "bottomRow": 84,
   "boxShadow": "none",
   "close": "{{closeModal(VideosDialog.name);}}",
