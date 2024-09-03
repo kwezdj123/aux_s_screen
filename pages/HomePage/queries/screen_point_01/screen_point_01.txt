@@ -33,13 +33,9 @@ select
             iot_algorithm_alarm a
                 LEFT JOIN iot_device b ON a.device_id = b.id
                 AND b.isdeleted = 0
-                LEFT JOIN iot_product c ON b.product_id = c.id
-                AND c.isdeleted = 0
-                LEFT JOIN iot_product_link d ON d.product_id = c.id
+								LEFT join (SELECT * FROM iot_device_org_link WHERE isdeleted='0' AND org_code LIKE concat({{this.params.orgCode ?? 'iot'}})) d on d.device_id=a.device_id
                 LEFT JOIN iot_device_alarm_type idat ON a.alarm_type_id = idat.id
                 LEFT JOIN iot_algorithm ia ON a.algorithm_id = ia.id
         WHERE
             a.isdeleted = '0' AND a.parent_id = 0
-          AND d.org_code LIKE concat( {{this.params.orgCode ? this.params.orgCode : ''}}, '%' )
-          AND a.alarm_date BETWEEN {{this.params.beginTime ?? '1900-01-01'}} AND {{this.params.endTime ?? '2099-01-01'}}
-					
+          AND a.alarm_date BETWEEN {{this.params.beginTime ?? '2024-08-30'}} AND {{this.params.endTime ?? '2024-09-01'}}

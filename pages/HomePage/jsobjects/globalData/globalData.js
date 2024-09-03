@@ -1,4 +1,8 @@
 export default {
+	selectMarkerData:null,
+	setSelectMarker(data){
+		this.selectMarkerData = data
+	},
 	backgroundColor:"#18181b",
 	eventHistory:[],
 	//事件弹框视频地址

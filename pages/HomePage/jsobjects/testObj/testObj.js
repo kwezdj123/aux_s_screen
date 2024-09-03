@@ -5,7 +5,7 @@ export default {
 	},
 
 	testRightList() {
-		return screen_point_right_list_obj.handleDynamicSql(177)
+		return screen_point_right_list_obj.handleDynamicSql(177, 1, 10)
 	},
 
 	testPie () {

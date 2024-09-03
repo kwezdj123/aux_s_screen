@@ -8,6 +8,10 @@
     "pluginType": "JS",
     "variables": [
       {
+        "name": "selectMarkerData",
+        "value": "null"
+      },
+      {
         "name": "backgroundColor",
         "value": "\"#18181b\""
       },

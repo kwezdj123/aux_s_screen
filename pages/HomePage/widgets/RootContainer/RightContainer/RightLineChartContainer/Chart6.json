@@ -3,7 +3,7 @@
   "allowScroll": false,
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 31,
+  "bottomRow": 33,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "chartData": {
     "xmkrfifale": {
@@ -122,7 +122,7 @@
   "isVisible": true,
   "key": "nt64gd4fnb",
   "labelOrientation": "auto",
-  "leftColumn": 2,
+  "leftColumn": 0,
   "minWidth": 450,
   "mobileBottomRow": 36,
   "mobileLeftColumn": 2,
@@ -176,7 +176,7 @@
     "数据展示"
   ],
   "thumbnailSVG": "/static/media/thumbnail.98fb19b2c4f99671c0888284cf939f3a.svg",
-  "topRow": 5,
+  "topRow": 4,
   "type": "CHART_WIDGET",
   "version": 1,
   "widgetId": "7fqn969uye",

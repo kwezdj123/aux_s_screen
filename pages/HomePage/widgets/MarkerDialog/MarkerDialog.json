@@ -1,15 +1,15 @@
 {
   "animateLoading": true,
-  "backgroundColor": "#18181b",
+  "backgroundColor": "transparent",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 842,
+  "bottomRow": 505,
   "boxShadow": "none",
   "canEscapeKeyClose": true,
   "canOutsideClickClose": true,
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 800,
+      "bottomRow": 660,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -29,11 +29,11 @@
       "isDisabled": false,
       "isLoading": false,
       "isVisible": true,
-      "key": "03it844pmg",
+      "key": "r7yo4kkd9a",
       "leftColumn": 0,
       "maxDynamicHeight": 9000,
       "minDynamicHeight": 4,
-      "minHeight": 740,
+      "minHeight": 668,
       "minWidth": 450,
       "mobileBottomRow": 240,
       "mobileLeftColumn": 0,
@@ -48,7 +48,7 @@
         "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
       },
       "parentColumnSpace": 1,
-      "parentId": "0dh0xxiaiz",
+      "parentId": "tg5g0k0wqr",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -57,8 +57,8 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "g6scmlfz2z",
-      "widgetName": "Canvas10Copy"
+      "widgetId": "byy5npx2oj",
+      "widgetName": "Canvas6Copy"
     }
   ],
   "detachFromLayout": true,
@@ -68,22 +68,23 @@
       "key": "borderRadius"
     }
   ],
-  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicHeight": "FIXED",
   "dynamicTriggerPathList": [],
-  "height": 800,
+  "height": 668,
   "hideCard": false,
   "iconSVG": "/static/media/icon.47fe8500526372db96cb58a82187ffeb.svg",
   "isCanvas": true,
   "isDeprecated": false,
   "isLoading": false,
-  "key": "ztjipxxfa0",
-  "leftColumn": 21,
+  "key": "rsnogq2f05",
+  "leftColumn": 22,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 24,
-  "mobileBottomRow": 68,
-  "mobileLeftColumn": 21,
-  "mobileRightColumn": 45,
-  "mobileTopRow": 44,
+  "minHeight": 440,
+  "mobileBottomRow": 66,
+  "mobileLeftColumn": 22,
+  "mobileRightColumn": 46,
+  "mobileTopRow": 42,
   "needsErrorInfo": false,
   "onCanvasUI": {
     "disableParentSelection": true,
@@ -96,7 +97,7 @@
   "parentId": "0",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
-  "rightColumn": 45,
+  "rightColumn": 46,
   "searchTags": [
     "dialog",
     "popup",
@@ -107,10 +108,10 @@
     "布局"
   ],
   "thumbnailSVG": "/static/media/thumbnail.c20e144182d9af35cde59e39d9afe632.svg",
-  "topRow": 42,
+  "topRow": 65,
   "type": "MODAL_WIDGET",
   "version": 2,
-  "widgetId": "0dh0xxiaiz",
-  "widgetName": "YJLXZBChartDialog",
-  "width": 1178
+  "widgetId": "tg5g0k0wqr",
+  "widgetName": "MarkerDialog",
+  "width": 1212
 }

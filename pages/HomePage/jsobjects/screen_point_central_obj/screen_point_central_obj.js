@@ -27,7 +27,7 @@ export default {
 				},
 				{
 					label: "已确定数",
-					value: query2.unHandledCount,
+					value: (query2.totalCount - query2.unHandledCount),
 					unit:'个'
 				},
 				{

@@ -3,7 +3,7 @@
   "allowScroll": false,
   "animateLoading": true,
   "borderRadius": "0px",
-  "bottomRow": 41,
+  "bottomRow": 58,
   "boxShadow": "none",
   "chartData": {
     "kz9xwna79w": {
@@ -173,7 +173,7 @@
     "数据展示"
   ],
   "thumbnailSVG": "/static/media/thumbnail.98fb19b2c4f99671c0888284cf939f3a.svg",
-  "topRow": 5,
+  "topRow": 4,
   "type": "CHART_WIDGET",
   "version": 1,
   "widgetId": "frye2xi6ld",

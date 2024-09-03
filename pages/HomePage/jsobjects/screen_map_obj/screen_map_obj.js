@@ -4,12 +4,14 @@ export default {
 		return res
 	},
 	async getEventList(begin,end){
+		const start = moment().subtract('days',1).format("yyyy-MM-DD")
+		const endd = moment().format("yyyy-MM-DD")
 		let res = await screen_point_01.run({
 			orgCode:"iot",
-			beginTime:begin ?? '2024',
-			endTime:end ?? '2100-01-01'
+			beginTime:begin ?? start,
+			endTime:end ?? endd
 		})
-		return res ?? []
+		return res ? res.filter(item=>item.lonLat != null) : []
 	}
 
 }

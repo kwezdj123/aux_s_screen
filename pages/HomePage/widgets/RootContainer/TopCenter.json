@@ -27,7 +27,7 @@
   "isSearchWildcard": true,
   "isVisible": true,
   "key": "il74eqf9zl",
-  "leftColumn": 10,
+  "leftColumn": 9,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "mobileBottomRow": 36,
@@ -46,7 +46,7 @@
   "parentId": "t74yajv9nb",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
-  "rightColumn": 53,
+  "rightColumn": 52,
   "searchTags": [
     "external"
   ],

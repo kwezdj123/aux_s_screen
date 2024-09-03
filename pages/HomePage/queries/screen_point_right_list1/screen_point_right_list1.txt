@@ -8,9 +8,15 @@ SELECT
 	idat.alarm_level AS alarmLevel,
 	a.device_name AS deviceName,
 	a.alarm_level AS handleLevel,
-	a.address AS address 
+	a.address AS address,
+	mspr.charge_person_name AS responsible, 
+	mspr.name AS destination,
+	mspr.org_name AS orgName
 FROM
 	iot_algorithm_alarm a
 	LEFT JOIN iot_device_alarm_type idat ON a.alarm_type_id = idat.id
+	LEFT JOIN model_safety_point_region_device msprd ON a.device_id = msprd.device_id AND msprd.isdeleted = '0'
+	LEFT JOIN model_safety_point_base_region mspbr ON msprd.region_id = mspbr.region_id AND mspbr.isdeleted = '0'
+	LEFT JOIN model_safety_point_region mspr ON mspbr.base_config_id = mspr.id AND mspr.isdeleted = '0'
 	WHERE a.isdeleted = '0' AND a.parent_id = 0 
 	AND a.alarm_type_id = {{this.params.type ? this.params.type : -1}} ORDER BY a.alarm_date DESC LIMIT 10
