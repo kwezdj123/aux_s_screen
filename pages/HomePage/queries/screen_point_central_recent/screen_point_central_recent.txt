@@ -1,20 +1,23 @@
 SELECT
 	a.id,
-	a.device_id as deviceId,
+	a.device_id AS deviceId,
 	DATE_FORMAT( a.alarm_date, '%Y-%m-%d %H:%i:%s' ) AS alarmDate,
 	a.total_time AS totalTime,
 	b.alarm_type_name AS typeName,
 	b.alarm_level AS alarmLevel,
 	a.device_name AS deviceName,
-	a.alarm_level as handleLevel,
-	a.img_url as imgUrl,
+	a.alarm_level AS handleLevel,
+	a.img_url AS imgUrl,
 	a.address AS address 
 FROM
 	`iot_algorithm_alarm` a
-	LEFT JOIN iot_device_alarm_type b ON a.alarm_type_id = b.id 
+	LEFT JOIN iot_device_alarm_type b ON a.alarm_type_id = b.id
+	AND b.isdeleted = '0' 
+	LEFT JOIN iot_device_org_link c ON a.device_id = c.device_id 
+	AND c.isdeleted = '0'
 WHERE
-	a.id = (
-		SELECT
-		MAX( id ) 
-		FROM
-		`iot_algorithm_alarm` WHERE isdeleted = '0' AND alarm_level IS NULL) 
+	a.id = ( SELECT MAX( id ) FROM `iot_algorithm_alarm` WHERE isdeleted = '0' AND alarm_level IS NULL ) 
+	AND c.org_code LIKE concat(
+		'{{globalData.currentOrgCode}}'
+	'%' 
+	)

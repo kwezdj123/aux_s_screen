@@ -3,9 +3,9 @@
   "borderColor": "",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 7,
+  "bottomRow": 8,
   "boxShadow": "none",
-  "defaultModel": "{\n \"title\":\"奥克斯S点驾驶舱\",\n \"style\":\"aux\"\n}",
+  "defaultModel": "{\n \"title\":\"奥克斯S点驾驶舱\",\n \"style\":\"aux\",\n \"orglist\":\"{{globalData.orgDataList}}\"\n}",
   "displayName": "Custom",
   "dynamicBindingPathList": [
     {
@@ -13,12 +13,35 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "defaultModel"
     }
   ],
   "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [],
-  "dynamicTriggerPathList": [],
-  "events": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "getOrgData"
+    },
+    {
+      "key": "orgChanged"
+    },
+    {
+      "key": "styleChanged"
+    },
+    {
+      "key": "getLevelData"
+    }
+  ],
+  "events": [
+    "getOrgData",
+    "orgChanged",
+    "styleChanged",
+    "getLevelData"
+  ],
+  "getLevelData": "{{globalData.getLevelData();}}",
+  "getOrgData": "{{globalData.getOrgData();}}",
   "hideCard": false,
   "iconSVG": "/static/media/icon.9b1065660dedd39cf997e3faa42244bc.svg",
   "isCanvas": false,
@@ -42,6 +65,7 @@
     "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
     "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
   },
+  "orgChanged": "{{globalData.setcurrentOrgcode(orgcode);\nscreen_point_central_obj.getCentralData();\nscreen_point_right_list_obj.getRightListData();\nscreen_point_left_search_obj.getLeftSearchList();\nscreen_point_left_bar.run({\n  type: 'month'\n});\nscreen_point_left_pie.run({\n  type: 'month'\n});\nscreen_point_right_chart_obj.getSeries()}}",
   "parentColumnSpace": 29.390625,
   "parentId": "t74yajv9nb",
   "parentRowSpace": 10,
@@ -51,10 +75,11 @@
     "external"
   ],
   "srcDoc": {
-    "css": "select {\n  width: 200px;\n}",
-    "html": "<div id=\"app\">\n\t<div class=\"aux-header\">\n\t\t<div class=\"left\">{{ time.join(' ') }}</div>\n\t\t<div class=\"title-container\">\n\t\t\t<div class=\"title\">{{ title }}</div>\n\t\t\t<div class=\"shadow\">{{ title }}</div>\n\t\t</div>\n\t\t<div class=\"right\">\n\n\t\t\t<select @change=\"typeChange\">\n\t\t\t\t<option\n\t\t\t\t\t\t\t\tv-for=\"(item,index) in styleList\"\n\t\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t\t:value=\"item.value\"\n\t\t\t\t\t\t\t\t>{{ item.label }}\n\t\t\t\t</option>\n\t\t\t</select>\n\t\t</div>\n\t</div>\n</div>\n\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<script src=\"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
-    "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#app\",\n    data() {\n      return {\n        title: appsmith.model.title,\n        time: [],\n        weekText: [\"星期天\", \"星期一\", \"星期二\", \"星期三\", \"星期四\", \"星期五\", \"星期六\"],\n        timer: null,\n        isHidden: false,\n        isExpand: false,\n        styleList: [{\n          label: '科技蓝',\n          value: 'aux'\n        }, {\n          label: '工业蓝',\n          value: 'aux-style1'\n        }, {\n          label: '神秘黑',\n          value: 'aux-style2'\n        }]\n      };\n    },\n    mounted() {\n      this.setTime();\n      document.title = this.title;\n    },\n    beforeDestroy() {\n      clearInterval(this.timer);\n    },\n    methods: {\n      typeChange(e) {\n        console.log(e);\n        appsmith.updateModel({\n          style: e.target.value\n        });\n        appsmith.triggerEvent(\"styleChanged\");\n        this.switchTheme(e.target.value);\n      },\n      switchTheme(theme) {\n        var themeLink = document.getElementById('aux-style');\n        themeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n      },\n      hiddenOnClick() {\n        this.isHidden = !this.isHidden;\n        this.$emit(\"hiddenOnClick\", this.isHidden);\n      },\n      setTime() {\n        if (this.timer) clearInterval(this.timer);\n        this.timer = setInterval(() => {\n          this.time = [moment().format(\"YYYY/MM/DD\"), this.weekText[moment().format(\"e\")], moment().format(\"HH:mm:ss\")];\n        }, 1000);\n      }\n    }\n  });\n});"
+    "css": "select {\n  width: 120px;\n}",
+    "html": "<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<script src=\"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n<div id=\"app\">\n\t<div class=\"aux-header\">\n\t\t<div class=\"left\">{{ time.join(' ') }}</div>\n\t\t<div class=\"title-container\">\n\t\t\t<div class=\"title\">{{ title }}</div>\n\t\t\t<div class=\"shadow\">{{ title }}</div>\n\t\t</div>\n\t\t<div class=\"right\">\n\t\t\t<select @change=\"orgChange\">\n\t\t\t\t<option\n\t\t\t\t\t\t\t\tv-for=\"(item,index) in orgList\"\n\t\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t\t:value=\"item.orgcode\"\n\t\t\t\t\t\t\t\t>{{ item.name }}\n\t\t\t\t</option>\n\t\t\t</select>\n\t\t\t<select @change=\"typeChange\">\n\t\t\t\t<option\n\t\t\t\t\t\t\t\tv-for=\"(item,index) in styleList\"\n\t\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t\t:value=\"item.value\"\n\t\t\t\t\t\t\t\t>{{ item.label }}\n\t\t\t\t</option>\n\t\t\t</select>\n\t\t</div>\n\t</div>\n</div>",
+    "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#app\",\n    data() {\n      return {\n        title: appsmith.model.title,\n        time: [],\n        weekText: [\"星期天\", \"星期一\", \"星期二\", \"星期三\", \"星期四\", \"星期五\", \"星期六\"],\n        timer: null,\n        isHidden: false,\n        isExpand: false,\n        styleList: [{\n          label: '科技蓝',\n          value: 'aux',\n          backgroundColor: \"#36363f\"\n        }, {\n          label: '工业蓝',\n          value: 'aux-style1',\n          backgroundColor: \"#00004B\"\n        }, {\n          label: '神秘黑',\n          value: 'aux-style2',\n          backgroundColor: \"#333235\"\n        }],\n        orgList: []\n      };\n    },\n    created() {\n      appsmith.triggerEvent(\"getOrgData\");\n      appsmith.triggerEvent(\"getLevelData\");\n    },\n    mounted() {\n      this.setTime();\n      document.title = this.title;\n      appsmith.onModelChange(model => {\n        this.orgList = JSON.parse(model.orglist);\n      });\n    },\n    beforeDestroy() {\n      clearInterval(this.timer);\n    },\n    methods: {\n      orgChange(e) {\n        // console.log(e)\n        const code = e.target.value;\n        const index = this.orgList.findIndex(w => w.orgcode == code && code != 'iot');\n        let orgdata = null;\n        if (index > -1) {\n          orgdata = this.orgList[index];\n        }\n        this.title = `奥克斯${orgdata?.name ?? ''}S点驾驶舱`;\n        appsmith.triggerEvent(\"orgChanged\", {\n          orgcode: code\n        });\n      },\n      typeChange(e) {\n        console.log(e);\n        const style = e.target.value;\n        appsmith.updateModel({\n          style: style\n        });\n        this.switchTheme(style);\n        const index = this.styleList.findIndex(w => w.value == style);\n        if (index > -1) {\n          appsmith.triggerEvent(\"styleChanged\", {\n            backgroundColor: this.styleList[index].backgroundColor\n          });\n        }\n      },\n      switchTheme(theme) {\n        var themeLink = document.getElementById('aux-style');\n        themeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n      },\n      hiddenOnClick() {\n        this.isHidden = !this.isHidden;\n        this.$emit(\"hiddenOnClick\", this.isHidden);\n      },\n      setTime() {\n        if (this.timer) clearInterval(this.timer);\n        this.timer = setInterval(() => {\n          this.time = [moment().format(\"YYYY/MM/DD\"), this.weekText[moment().format(\"e\")], moment().format(\"HH:mm:ss\")];\n        }, 1000);\n      }\n    }\n  });\n});"
   },
+  "styleChanged": "{{globalData.changeBackgroundColor(backgroundColor);}}",
   "tags": [
     "Display"
   ],
@@ -63,9 +88,9 @@
   "topRow": 0,
   "type": "CUSTOM_WIDGET",
   "uncompiledSrcDoc": {
-    "css": "select{\n\twidth:200px;\n}",
-    "html": "<div id=\"app\">\n\t<div class=\"aux-header\">\n\t\t<div class=\"left\">{{ time.join(' ') }}</div>\n\t\t<div class=\"title-container\">\n\t\t\t<div class=\"title\">{{ title }}</div>\n\t\t\t<div class=\"shadow\">{{ title }}</div>\n\t\t</div>\n\t\t<div class=\"right\">\n\n\t\t\t<select @change=\"typeChange\">\n\t\t\t\t<option\n\t\t\t\t\t\t\t\tv-for=\"(item,index) in styleList\"\n\t\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t\t:value=\"item.value\"\n\t\t\t\t\t\t\t\t>{{ item.label }}\n\t\t\t\t</option>\n\t\t\t</select>\n\t\t</div>\n\t</div>\n</div>\n\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<script src=\"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
-    "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#app\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\ttitle:appsmith.model.title,\n\t\t\t\ttime: [],\n\t\t\t\tweekText: [\n\t\t\t\t\t\"星期天\",\n\t\t\t\t\t\"星期一\",\n\t\t\t\t\t\"星期二\",\n\t\t\t\t\t\"星期三\",\n\t\t\t\t\t\"星期四\",\n\t\t\t\t\t\"星期五\",\n\t\t\t\t\t\"星期六\"\n\t\t\t\t],\n\t\t\t\ttimer: null,\n\t\t\t\tisHidden: false,\n\t\t\t\tisExpand: false,\n\t\t\t\tstyleList:[{\n\t\t\t\t\tlabel:'科技蓝',\n\t\t\t\t\tvalue:'aux'\n\t\t\t\t},{\n\t\t\t\t\tlabel:'工业蓝',\n\t\t\t\t\tvalue:'aux-style1'\n\t\t\t\t},{\n\t\t\t\t\tlabel:'神秘黑',\n\t\t\t\t\tvalue:'aux-style2'\n\t\t\t\t}]\n\t\t\t};\n\t\t},\n\t\tmounted() {\n\t\t\tthis.setTime()\n\t\t\tdocument.title = this.title\n\t\t},\n\t\tbeforeDestroy() {\n\t\t\tclearInterval(this.timer)\n\t\t},\n\t\tmethods: {\n\t\t\ttypeChange(e){\n\t\t\t\tconsole.log(e)\n\t\t\t\tappsmith.updateModel({style:e.target.value})\n\t\t\t\tappsmith.triggerEvent(\"styleChanged\")\n\t\t\t\tthis.switchTheme(e.target.value)\n\t\t\t},\n\t\t\tswitchTheme(theme) {\n\t\t\t\tvar themeLink = document.getElementById('aux-style');\n\t\t\t\tthemeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n\t\t\t},\n\t\t\thiddenOnClick() {\n\t\t\t\tthis.isHidden = !this.isHidden\n\t\t\t\tthis.$emit(\"hiddenOnClick\", this.isHidden)\n\t\t\t},\n\t\t\tsetTime() {\n\t\t\t\tif (this.timer) clearInterval(this.timer)\n\t\t\t\tthis.timer = setInterval(() => {\n\t\t\t\t\tthis.time = [\n\t\t\t\t\t\tmoment().format(\"YYYY/MM/DD\"),\n\t\t\t\t\t\tthis.weekText[moment().format(\"e\")],\n\t\t\t\t\t\tmoment().format(\"HH:mm:ss\")\n\t\t\t\t\t]\n\t\t\t\t}, 1000)\n\t\t\t}\n\t\t}\n\t});\n});"
+    "css": "select{\n\twidth:120px;\n}",
+    "html": "<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<script src=\"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>\n<div id=\"app\">\n\t<div class=\"aux-header\">\n\t\t<div class=\"left\">{{ time.join(' ') }}</div>\n\t\t<div class=\"title-container\">\n\t\t\t<div class=\"title\">{{ title }}</div>\n\t\t\t<div class=\"shadow\">{{ title }}</div>\n\t\t</div>\n\t\t<div class=\"right\">\n\t\t\t<select @change=\"orgChange\">\n\t\t\t\t<option\n\t\t\t\t\t\t\t\tv-for=\"(item,index) in orgList\"\n\t\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t\t:value=\"item.orgcode\"\n\t\t\t\t\t\t\t\t>{{ item.name }}\n\t\t\t\t</option>\n\t\t\t</select>\n\t\t\t<select @change=\"typeChange\">\n\t\t\t\t<option\n\t\t\t\t\t\t\t\tv-for=\"(item,index) in styleList\"\n\t\t\t\t\t\t\t\t:key=\"index\"\n\t\t\t\t\t\t\t\t:value=\"item.value\"\n\t\t\t\t\t\t\t\t>{{ item.label }}\n\t\t\t\t</option>\n\t\t\t</select>\n\t\t</div>\n\t</div>\n</div>",
+    "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#app\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\ttitle:appsmith.model.title,\n\t\t\t\ttime: [],\n\t\t\t\tweekText: [\n\t\t\t\t\t\"星期天\",\n\t\t\t\t\t\"星期一\",\n\t\t\t\t\t\"星期二\",\n\t\t\t\t\t\"星期三\",\n\t\t\t\t\t\"星期四\",\n\t\t\t\t\t\"星期五\",\n\t\t\t\t\t\"星期六\"\n\t\t\t\t],\n\t\t\t\ttimer: null,\n\t\t\t\tisHidden: false,\n\t\t\t\tisExpand: false,\n\t\t\t\tstyleList:[{\n\t\t\t\t\tlabel:'科技蓝',\n\t\t\t\t\tvalue:'aux',\n\t\t\t\t\tbackgroundColor:\"#36363f\"\n\t\t\t\t},{\n\t\t\t\t\tlabel:'工业蓝',\n\t\t\t\t\tvalue:'aux-style1',\n\t\t\t\t\tbackgroundColor:\"#00004B\"\n\t\t\t\t},{\n\t\t\t\t\tlabel:'神秘黑',\n\t\t\t\t\tvalue:'aux-style2',\n\t\t\t\t\tbackgroundColor:\"#333235\"\n\t\t\t\t}],\n\t\t\t\torgList:[]\n\t\t\t};\n\t\t},\n\t\tcreated(){\n\t\t\tappsmith.triggerEvent(\"getOrgData\")\n\t\t\tappsmith.triggerEvent(\"getLevelData\")\n\t\t},\n\t\tmounted() {\n\t\t\tthis.setTime()\n\t\t\tdocument.title = this.title\n\t\t\tappsmith.onModelChange((model)=>{\n\t\t\t\tthis.orgList = JSON.parse(model.orglist)\n\t\t\t})\n\t\t},\n\t\tbeforeDestroy() {\n\t\t\tclearInterval(this.timer)\n\t\t},\n\t\tmethods: {\n\t\t\torgChange(e){\n\t\t\t\t// console.log(e)\n\t\t\t\tconst code = e.target.value\n\t\t\t\tconst index = this.orgList.findIndex(w=>w.orgcode == code && code != 'iot')\n\t\t\t\tlet orgdata = null\n\t\t\t\tif (index > -1){\n\t\t\t\t\torgdata = this.orgList[index]\n\t\t\t\t}\n\t\t\t\tthis.title = `奥克斯${orgdata?.name ?? ''}S点驾驶舱`\n\t\t\t\tappsmith.triggerEvent(\"orgChanged\",{orgcode:code})\n\t\t\t},\n\t\t\ttypeChange(e){\n\t\t\t\tconsole.log(e)\n\t\t\t\tconst style = e.target.value\n\t\t\t\tappsmith.updateModel({style:style})\n\t\t\t\tthis.switchTheme(style)\n\t\t\t\tconst index = this.styleList.findIndex(w=>w.value==style)\n\t\t\t\tif (index > -1){\n\t\t\t\t\tappsmith.triggerEvent(\"styleChanged\",{\n\t\t\t\t\t\tbackgroundColor:this.styleList[index].backgroundColor\n\t\t\t\t\t})\n\t\t\t\t}\n\n\n\t\t\t},\n\t\t\tswitchTheme(theme) {\n\t\t\t\tvar themeLink = document.getElementById('aux-style');\n\t\t\t\tthemeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n\t\t\t},\n\t\t\thiddenOnClick() {\n\t\t\t\tthis.isHidden = !this.isHidden\n\t\t\t\tthis.$emit(\"hiddenOnClick\", this.isHidden)\n\t\t\t},\n\t\t\tsetTime() {\n\t\t\t\tif (this.timer) clearInterval(this.timer)\n\t\t\t\tthis.timer = setInterval(() => {\n\t\t\t\t\tthis.time = [\n\t\t\t\t\t\tmoment().format(\"YYYY/MM/DD\"),\n\t\t\t\t\t\tthis.weekText[moment().format(\"e\")],\n\t\t\t\t\t\tmoment().format(\"HH:mm:ss\")\n\t\t\t\t\t]\n\t\t\t\t}, 1000)\n\t\t\t}\n\t\t}\n\t});\n});"
   },
   "version": 1,
   "widgetId": "r6hmrnm8k0",

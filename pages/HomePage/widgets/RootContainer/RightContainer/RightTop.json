@@ -61,7 +61,7 @@
   ],
   "showMoreDialog": "{{showModal(MoreWarningDialog.name);}}",
   "srcDoc": {
-    "css": ".title2 {\n  transform: translateY(-3px);\n  cursor: pointer;\n  font-size: 14px;\n  margin-right: 10px;\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  justify-content: flex-start;\n}\n.title2 img {\n  width: 10px;\n  height: 10px;\n}",
+    "css": "",
     "html": "<div id=\"app\" class=\"box-bg\">\n\t<div class=\"title\">\n\t\t{{ title }}\n\t</div>\n\t<div class=\"title2\" @click=\"more\">\n\t\t<div>更多</div><img src=\"http://cdn.p.superton.cn/aizhiyan/more.svg\"/>\n\t</div>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
     "js": "appsmith.onReady(() => {\n  /*\n   * This handler function will get called when parent application is ready.\n   * Initialize your component here\n   * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n   */\n  new Vue({\n    el: \"#app\",\n    data() {\n      return {\n        title: appsmith.model.title\n      };\n    },\n    mounted() {\n      appsmith.onModelChange(model => {\n        if (model) {\n          this.switchTheme(model.style);\n        }\n      });\n    },\n    methods: {\n      more() {\n        appsmith.triggerEvent(\"showMoreDialog\");\n      },\n      switchTheme(theme) {\n        var themeLink = document.getElementById('aux-style');\n        themeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n      }\n    }\n  });\n});"
   },
@@ -73,7 +73,7 @@
   "topRow": 0,
   "type": "CUSTOM_WIDGET",
   "uncompiledSrcDoc": {
-    "css": ".title2{\n\ttransform:translateY(-3px);\n\tcursor:pointer;\n\tfont-size:14px;\n\tmargin-right:10px;\n\tdisplay:flex;\n\talign-items:center;\n\tgap:3px;\n\tjustify-content:flex-start;\n\timg{\n\t\twidth:10px;\n\t\theight:10px;\n\t}\n\t\n}\n",
+    "css": "",
     "html": "<div id=\"app\" class=\"box-bg\">\n\t<div class=\"title\">\n\t\t{{ title }}\n\t</div>\n\t<div class=\"title2\" @click=\"more\">\n\t\t<div>更多</div><img src=\"http://cdn.p.superton.cn/aizhiyan/more.svg\"/>\n\t</div>\n</div>\n<script src=\"https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js\"></script>\n<link id=\"aux-style\" rel=\"stylesheet\" href=\"https://test.superton.cn/aux/aux.css\"/>",
     "js": "appsmith.onReady(() => {\n\t/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n\tnew Vue({\n\t\tel: \"#app\",\n\t\tdata() {\n\t\t\treturn {\n\t\t\t\ttitle: appsmith.model.title\n\t\t\t};\n\t\t},\n\t\tmounted(){\n\t\t\tappsmith.onModelChange((model)=>{\n\t\t\t\tif (model){\n\t\t\t\t\tthis.switchTheme(model.style)\n\t\t\t\t}\n\t\t\t})\n\t\t},\n\t\tmethods: {\n\t\t\tmore(){\n\t\t\t\tappsmith.triggerEvent(\"showMoreDialog\")\n\t\t\t},\n\t\t\tswitchTheme(theme) {\n\t\t\t\tvar themeLink = document.getElementById('aux-style');\n\t\t\t\tthemeLink.href = `https://test.superton.cn/aux/${theme}.css`;\n\t\t\t}\n\t\t},\n\t});\n});"
   },

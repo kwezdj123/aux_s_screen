@@ -3,7 +3,11 @@ export default {
 	setSelectMarker(data){
 		this.selectMarkerData = data
 	},
-	backgroundColor:"#18181b",
+	changeBackgroundColor(color){
+		this.backgroundColor = color
+	},
+	backgroundColor:"#36363f",
+	// backgroundColor:"#333235",
 	eventHistory:[],
 	//事件弹框视频地址
 	currentVideoURL:"",
@@ -27,11 +31,20 @@ export default {
 	//左侧播放视频地址列表
 	videoList:[],
 	async getVideosUrlList(points){
+		points = points || []
+		console.log("getVideosUrlList",points)
 		let tempList = []
 		for(let point of points){
 			await getVideo.run({deviceId:point.id}).then(res=>{
 				console.log("getVideoURL",res)
-				point.videoURL = `https://test.superton.cn/videoplayer/?url=${encodeURIComponent(res.data)}`
+				// if (res.result){
+				// point.videoURL = `https://test.superton.cn/videoplayer/?url=${encodeURIComponent(res.data)}`
+				point.videoURL = `http://test.superton.cn/videoplayer/index.html?url=http://39.184.240.219:7086/live/cameraid/1000801%240/substream/1.m3u8`
+
+				// }else{
+				// // point.videoURL = null
+				// delete point.videoURL
+				// }
 				tempList.push(point)
 			})
 		}
@@ -89,5 +102,37 @@ export default {
 			title: "接入点位",
 			isSelected: false
 		}
-	]
+	],
+	levelDataList:[],
+	getLevelData(){
+		getLevelList.run().then(res=>{
+			res = res.data
+
+			const list = Object.keys(res).map(key=>{
+				return {
+					label:res[key],
+					value:key
+				}
+			})
+			this.levelDataList = list
+			console.log("getLevelData",this.levelDataList)
+		})
+	},
+	currentOrgCode:'iot',
+	setcurrentOrgcode(code){
+		this.currentOrgCode = code
+	},
+	orgDataList:[],
+	getOrgData(){
+		event_level_data.run().then(res=>{
+			res = res.data
+			console.log("event_level_data",res)
+			this.orgDataList = [{orgcode:'iot',name:"总览"},...res]
+		})
+	},
+	eventDialogData:null,
+	setEventDialogData(data){
+		this.eventDialogData = data
+	},
+
 }

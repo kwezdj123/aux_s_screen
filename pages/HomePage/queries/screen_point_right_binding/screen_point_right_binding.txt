@@ -5,8 +5,11 @@ FROM
 	iot_algorithm a
 	LEFT JOIN iot_algorithm_alarm b ON a.id = b.algorithm_id 
 	AND b.isdeleted = 0 
+	LEFT JOIN iot_device_org_link c ON b.device_id = c.device_id 
+	AND c.isdeleted = '0'
 WHERE
 	a.isdeleted = 0 
+	AND c.org_code LIKE concat({{globalData.currentOrgCode}}, '%')
 GROUP BY
 	a.id 
 HAVING

@@ -1,6 +1,8 @@
 {
   "animateLoading": true,
   "backgroundColor": "",
+  "backgroundSize": "100% 100%",
+  "backgroundUrl": "http://cdn.p.superton.cn/aizhiyan/right_side_bg.png",
   "borderColor": "",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
@@ -9,7 +11,7 @@
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 1060,
+      "bottomRow": 1050,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -80,7 +82,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "wggi40ovf4",
-  "leftColumn": 52,
+  "leftColumn": 53,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 10,
   "minWidth": 450,
@@ -112,7 +114,7 @@
     "Layout"
   ],
   "thumbnailSVG": "/static/media/thumbnail.6cb355b93146b5347bbb048a568ed446.svg",
-  "topRow": 7,
+  "topRow": 8,
   "type": "CONTAINER_WIDGET",
   "version": 1,
   "widgetId": "6dal01oe7p",

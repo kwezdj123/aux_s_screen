@@ -1,5 +1,7 @@
 export default {
+
 	getSearchSql(selectType, name, startTime, endTime) {
+		const code = globalData.currentOrgCode
 		let columnSql = "SELECT a.id AS id,a.name AS name,a.lon_lat AS lonLat,a.state AS state "
 		if (startTime && endTime) {
 			columnSql += `,(SELECT COUNT(DISTINCT t.id) FROM iot_algorithm_alarm t WHERE t.isdeleted = 0 AND t.device_id = a.id AND DATE_FORMAT(t.createdate,'%Y-%m-%d') BETWEEN '${startTime}' AND '${endTime}') AS warningRecord `
@@ -10,7 +12,7 @@ export default {
 		}
 		let selectSql = selectType == 0 ? 'AND ial.id IS NOT NULL' : ''
 		let concatSql = name ? ` AND a.name LIKE "%${name}%"` : ' '
-		let conditionSql = `WHERE a.isdeleted = 0 AND d.code = 'camera' ${selectSql} ${concatSql}  GROUP BY a.id`
+		let conditionSql = `WHERE a.isdeleted = 0 AND d.code = 'camera' ${selectSql} ${concatSql} AND c.org_code LIKE concat('${code}', '%')  GROUP BY a.id`
 		return columnSql + tableSql + conditionSql
 	},
 

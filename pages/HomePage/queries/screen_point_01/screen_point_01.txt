@@ -22,7 +22,6 @@ select
         a.is_play_sound AS "isPlaySound",
         a.play_error_reason AS "playErrorReason",
         a.video_url AS "videoUrl",
-        a.handle_url AS "handleUrl",
         a.handle_remark AS "handleRemark",
         a.handle_date AS "handleDate",
         a.alarm_level AS "alarmLevel"
@@ -32,10 +31,10 @@ select
         from
             iot_algorithm_alarm a
                 LEFT JOIN iot_device b ON a.device_id = b.id
-                AND b.isdeleted = 0
-								LEFT join (SELECT * FROM iot_device_org_link WHERE isdeleted='0' AND org_code LIKE concat({{this.params.orgCode ?? 'iot'}})) d on d.device_id=a.device_id
+
+								LEFT join (SELECT * FROM iot_device_org_link WHERE isdeleted='0' AND org_code LIKE concat({{globalData.currentOrgCode}}, '%')) d on d.device_id=a.device_id
                 LEFT JOIN iot_device_alarm_type idat ON a.alarm_type_id = idat.id
                 LEFT JOIN iot_algorithm ia ON a.algorithm_id = ia.id
         WHERE
             a.isdeleted = '0' AND a.parent_id = 0
-          AND a.alarm_date BETWEEN {{this.params.beginTime ?? '2024-08-30'}} AND {{this.params.endTime ?? '2024-09-01'}}
+          AND a.alarm_date BETWEEN {{this.params.beginTime ?? '2024-08-01'}} AND {{this.params.endTime ?? '2024-09-01'}}

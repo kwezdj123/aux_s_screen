@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6694e79242e0cf1ce121987e_07eb06bf-598d-4d02-95b5-79ae5df3299e",
-  "id": "HomePage_getToken",
+  "gitSyncId": "6694e79242e0cf1ce121987e_20202fe1-1a07-45ea-b460-4fd9162e5f98",
+  "id": "HomePage_event_level_data",
   "pluginId": "restapi-plugin",
   "pluginType": "API",
   "unpublishedAction": {
@@ -11,7 +11,7 @@
           "value": "application/json"
         }
       ],
-      "body": "{\n    \"username\": \"cjgly\",\n    \"password\": \"Aa12345678\"\n}",
+      "body": "{\"level2\": 10, \"type\": 0}",
       "bodyFormData": [],
       "encodeParamsToggle": true,
       "formData": {
@@ -30,7 +30,7 @@
       "httpMethod": "POST",
       "httpVersion": "HTTP11",
       "paginationType": "NONE",
-      "path": "/server/user-server/token",
+      "path": "http://{{apiObj.hearders.host}}/superton-iot-server/treeorganization/getListByLevel2",
       "pluginSpecifiedTemplates": [
         {
           "value": true
@@ -47,17 +47,17 @@
     },
     "dynamicBindingPathList": [
       {
+        "key": "path"
+      },
+      {
         "key": "headers[0].value"
       },
       {
         "key": "headers[1].value"
-      },
-      {
-        "key": "path"
       }
     ],
     "executeOnLoad": false,
-    "name": "getToken",
+    "name": "event_level_data",
     "pageId": "HomePage",
     "userSetOnLoad": false
   }

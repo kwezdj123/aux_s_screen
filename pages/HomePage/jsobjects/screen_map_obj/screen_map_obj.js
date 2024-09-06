@@ -1,7 +1,7 @@
 export default {
 	async getMapData(type) {
 		let res = await screen_map.run({type:type})
-		return res
+		return res ? res.filter(item=>item.lonLat != null) : []
 	},
 	async getEventList(begin,end){
 		const start = moment().subtract('days',1).format("yyyy-MM-DD")
@@ -11,7 +11,7 @@ export default {
 			beginTime:begin ?? start,
 			endTime:end ?? endd
 		})
-		return res ? res.filter(item=>item.lonLat != null) : []
+		res = res ? res.filter(item=>item.lonLat != null) : []
+		return res
 	}
-
 }

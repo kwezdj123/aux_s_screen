@@ -118,6 +118,7 @@
   "key": "993h8vy23y",
   "labelOrientation": "auto",
   "leftColumn": 1,
+  "legend": "{\n\t\"textStyle\":{\n\t\t\"color\":\"white\"\n\t}\n}",
   "minWidth": 450,
   "mobileBottomRow": 82,
   "mobileLeftColumn": 1,

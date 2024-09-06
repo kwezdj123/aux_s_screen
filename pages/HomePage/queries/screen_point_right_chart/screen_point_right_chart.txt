@@ -28,7 +28,7 @@ FROM
 		WHERE
 		a.isdeleted = '0' 
 		AND a.parent_id = 0
-		AND d.org_code LIKE concat("iot", '%' )
+		AND d.org_code LIKE concat({{globalData.currentOrgCode}}, '%' )
 		AND a.algorithm_id = {{this.params.algorithmId}}
 		GROUP BY
 		DATE_FORMAT( a.alarm_date, '%Y-%m' )) t2 ON t1.`month` = t2.date 

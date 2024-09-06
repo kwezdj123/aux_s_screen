@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n\ta.id,\n\ta.algorithm_name AS \"algorithmName\"\nFROM\n\tiot_algorithm a\n\tLEFT JOIN iot_algorithm_alarm b ON a.id = b.algorithm_id \n\tAND b.isdeleted = 0 \nWHERE\n\ta.isdeleted = 0 \nGROUP BY\n\ta.id \nHAVING\n\tCOUNT(\n\tb.id > 0)",
+      "body": "SELECT\n\ta.id,\n\ta.algorithm_name AS \"algorithmName\"\nFROM\n\tiot_algorithm a\n\tLEFT JOIN iot_algorithm_alarm b ON a.id = b.algorithm_id \n\tAND b.isdeleted = 0 \n\tLEFT JOIN iot_device_org_link c ON b.device_id = c.device_id \n\tAND c.isdeleted = '0'\nWHERE\n\ta.isdeleted = 0 \n\tAND c.org_code LIKE concat({{globalData.currentOrgCode}}, '%')\nGROUP BY\n\ta.id \nHAVING\n\tCOUNT(\n\tb.id > 0)",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,7 +22,11 @@
       "name": "220",
       "pluginId": "mysql-plugin"
     },
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "executeOnLoad": false,
     "name": "screen_point_right_binding",
     "pageId": "HomePage",

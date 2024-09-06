@@ -27,7 +27,7 @@
   "isSearchWildcard": true,
   "isVisible": true,
   "key": "il74eqf9zl",
-  "leftColumn": 9,
+  "leftColumn": 10,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "mobileBottomRow": 36,
@@ -46,7 +46,7 @@
   "parentId": "t74yajv9nb",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
-  "rightColumn": 52,
+  "rightColumn": 53,
   "searchTags": [
     "external"
   ],
@@ -60,7 +60,7 @@
   ],
   "theme": "{{appsmith.theme}}",
   "thumbnailSVG": "/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
-  "topRow": 8,
+  "topRow": 9,
   "type": "CUSTOM_WIDGET",
   "uncompiledSrcDoc": {
     "css": "",

@@ -1,8 +1,9 @@
 export default {
 	getLeftPieSql(type) {
+		const code = globalData.currentOrgCode
 		let columns = 'SELECT count(1) as `y`, b.alarm_type_name as `x`, b.id as typeId '
-		let table = 'FROM iot_algorithm_alarm a LEFT JOIN iot_device_alarm_type b ON a.alarm_type_id = b.id and b.isdeleted = 0 '
-		let condition = 'WHERE a.isdeleted = 0 AND a.parent_id = 0 '
+		let table = 'FROM iot_algorithm_alarm a LEFT JOIN iot_device_alarm_type b ON a.alarm_type_id = b.id and b.isdeleted = 0 LEFT join iot_device_org_link idol ON a.device_id = idol.device_id AND idol.isdeleted=0 '
+		let condition = `WHERE a.isdeleted = 0 AND a.parent_id = 0 AND idol.org_code LIKE concat("${code}", "%") `
 		let concatSql = ''
 		if (type === 'month') {
 			concatSql = "'%Y-%M'"
@@ -29,10 +30,11 @@ export default {
 	},
 
 	getLeftBarSql(type) {
+		const code = globalData.currentOrgCode
 		if (type === 'month') {
-			return "SELECT count(1) as `y`, DATE_FORMAT(a.alarm_date, '%m月%d日') as x FROM iot_algorithm_alarm a  WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m-%d')"
+			return `SELECT count(1) as y, DATE_FORMAT(a.alarm_date, '%m月%d日') as x FROM iot_algorithm_alarm a LEFT join iot_device_org_link idol ON a.device_id = idol.device_id AND idol.isdeleted='0' WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m') AND idol.org_code LIKE concat('${code}', '%') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m-%d')`
 		} else if (type === 'year') {
-			return "SELECT count(1) as `y`, DATE_FORMAT(a.alarm_date, '%m月') as x FROM iot_algorithm_alarm a  WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y') = DATE_FORMAT(NOW(), '%Y') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m')"
+			return `SELECT count(1) as y, DATE_FORMAT(a.alarm_date, '%m月') as x FROM iot_algorithm_alarm a LEFT join iot_device_org_link idol ON a.device_id = idol.device_id AND idol.isdeleted='0'   WHERE a.isdeleted = 0 AND a.parent_id = 0 AND DATE_FORMAT(a.alarm_date, '%Y') = DATE_FORMAT(NOW(), '%Y') AND idol.org_code LIKE concat('${code}', '%') GROUP BY DATE_FORMAT(a.alarm_date, '%Y-%m')`
 		} else {
 			return ""
 		}

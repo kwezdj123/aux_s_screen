@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "6694e79242e0cf1ce121987e_07eb06bf-598d-4d02-95b5-79ae5df3299e",
-  "id": "HomePage_getToken",
+  "gitSyncId": "6694e79242e0cf1ce121987e_1b5f826c-bef3-465f-a2d5-13927f699868",
+  "id": "HomePage_getLevelList",
   "pluginId": "restapi-plugin",
   "pluginType": "API",
   "unpublishedAction": {
@@ -11,7 +11,7 @@
           "value": "application/json"
         }
       ],
-      "body": "{\n    \"username\": \"cjgly\",\n    \"password\": \"Aa12345678\"\n}",
+      "body": "{}",
       "bodyFormData": [],
       "encodeParamsToggle": true,
       "formData": {
@@ -21,16 +21,12 @@
         {
           "key": "Referer",
           "value": "{{apiObj.hearders.referer}}"
-        },
-        {
-          "key": "Client-Type",
-          "value": "{{apiObj.hearders.clientType}}"
         }
       ],
       "httpMethod": "POST",
       "httpVersion": "HTTP11",
       "paginationType": "NONE",
-      "path": "/server/user-server/token",
+      "path": "/superton-iot-server-zd/dictionary/alarmLevelList",
       "pluginSpecifiedTemplates": [
         {
           "value": true
@@ -48,16 +44,10 @@
     "dynamicBindingPathList": [
       {
         "key": "headers[0].value"
-      },
-      {
-        "key": "headers[1].value"
-      },
-      {
-        "key": "path"
       }
     ],
     "executeOnLoad": false,
-    "name": "getToken",
+    "name": "getLevelList",
     "pageId": "HomePage",
     "userSetOnLoad": false
   }

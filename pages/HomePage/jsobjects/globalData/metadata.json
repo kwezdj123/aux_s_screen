@@ -13,7 +13,7 @@
       },
       {
         "name": "backgroundColor",
-        "value": "\"#18181b\""
+        "value": "\"#36363f\""
       },
       {
         "name": "eventHistory",
@@ -42,6 +42,22 @@
       {
         "name": "shipinList",
         "value": "[{\n  title: \"分析点位\",\n  isSelected: true\n}, {\n  title: \"接入点位\",\n  isSelected: false\n}]"
+      },
+      {
+        "name": "levelDataList",
+        "value": "[]"
+      },
+      {
+        "name": "currentOrgCode",
+        "value": "'iot'"
+      },
+      {
+        "name": "orgDataList",
+        "value": "[]"
+      },
+      {
+        "name": "eventDialogData",
+        "value": "null"
       }
     ]
   }

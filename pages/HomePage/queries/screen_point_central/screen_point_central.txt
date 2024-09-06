@@ -1,8 +1,13 @@
-SELECT COUNT(1) AS videoCount FROM iot_device  LEFT JOIN iot_product  ON iot_device.product_id = iot_product.id
+SELECT COUNT(1) AS videoCount FROM (SELECT COUNT(1) AS videoCount FROM iot_device  LEFT JOIN iot_product  ON iot_device.product_id = iot_product.id
 LEFT JOIN iot_product_category ON iot_product.product_category_id = iot_product_category.id
-WHERE iot_device.isdeleted = 0 AND iot_product_category.name = '视频监控';
+LEFT join iot_device_org_link idol ON iot_device.id = idol.device_id AND idol.isdeleted='0'
+WHERE iot_device.isdeleted = 0 AND iot_product_category.name = '视频监控' AND idol.org_code LIKE concat({{globalData.currentOrgCode}}, '%') GROUP BY iot_device.id)z;
 
 SELECT IFNULL(SUM(IF(handle_status = '1' OR handle_status = '2', 1, 0)), 0) AS unHandledCount,
-count(1) AS totalCount
-FROM iot_algorithm_alarm WHERE isdeleted = 0 AND parent_id = 0
-AND DATE_FORMAT(createdate, '%Y-%m-%d') = DATE_FORMAT('NOW()', '%Y-%m-%d');
+count(1) AS totalCount FROM (
+SELECT handle_status 
+FROM iot_algorithm_alarm
+LEFT join iot_device_org_link idol ON iot_algorithm_alarm.device_id = idol.device_id AND idol.isdeleted='0'
+WHERE iot_algorithm_alarm.isdeleted = 0 AND iot_algorithm_alarm.parent_id = 0
+AND DATE_FORMAT(iot_algorithm_alarm.createdate, '%Y-%m-%d') = DATE_FORMAT('NOW()', '%Y-%m-%d')
+AND idol.org_code LIKE concat({{globalData.currentOrgCode}}, '%') GROUP BY iot_algorithm_alarm.id)z;
