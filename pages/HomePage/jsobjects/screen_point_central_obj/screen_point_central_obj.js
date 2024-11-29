@@ -32,7 +32,7 @@ export default {
 				},
 				{
 					label: "处理率",
-					value:  rate * 100,
+					value:  Math.round((rate * 100),1),
 					unit:'%'
 				},
 			]

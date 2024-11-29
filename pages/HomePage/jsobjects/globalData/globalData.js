@@ -38,8 +38,8 @@ export default {
 			await getVideo.run({deviceId:point.id}).then(res=>{
 				console.log("getVideoURL",res)
 				// if (res.result){
-				// point.videoURL = `https://test.superton.cn/videoplayer/?url=${encodeURIComponent(res.data)}`
-				point.videoURL = `http://test.superton.cn/videoplayer/index.html?url=http://39.184.240.219:7086/live/cameraid/1000801%240/substream/1.m3u8`
+				point.videoURL = `https://test.superton.cn/videoplayer/index.html?url=${encodeURIComponent(res.data)}`
+				// point.videoURL = `http://test.superton.cn/videoplayer/index.html?url=http://39.184.240.219:7086/live/cameraid/1000801%240/substream/1.m3u8`
 
 				// }else{
 				// // point.videoURL = null
@@ -54,7 +54,7 @@ export default {
 		console.log("getVideoURL deviceId",deviceId)
 		getVideo.run({deviceId:deviceId}).then(res=>{
 			console.log("getVideoURL",res)
-			this.currentVideoURL = res.data
+			this.currentVideoURL = `https://test.superton.cn/videoplayer/?url=${encodeURIComponent(res.data)}`
 		})
 	},
 	selectType:[],

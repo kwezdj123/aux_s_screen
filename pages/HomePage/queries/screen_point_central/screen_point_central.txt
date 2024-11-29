@@ -9,5 +9,5 @@ SELECT handle_status
 FROM iot_algorithm_alarm
 LEFT join iot_device_org_link idol ON iot_algorithm_alarm.device_id = idol.device_id AND idol.isdeleted='0'
 WHERE iot_algorithm_alarm.isdeleted = 0 AND iot_algorithm_alarm.parent_id = 0
-AND DATE_FORMAT(iot_algorithm_alarm.createdate, '%Y-%m-%d') = DATE_FORMAT('NOW()', '%Y-%m-%d')
+AND DATE_FORMAT(iot_algorithm_alarm.createdate, '%Y-%m-%d') = DATE_FORMAT(NOW(), '%Y-%m-%d')
 AND idol.org_code LIKE concat({{globalData.currentOrgCode}}, '%') GROUP BY iot_algorithm_alarm.id)z;

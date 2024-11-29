@@ -14,21 +14,22 @@ export default {
 		return sql
 	},
 
-	async getRightListData(type,pagesize,pagenum,startTime,endTime){
+	async getRightListData(type,pagesize,pagenum){
 		const types = await screen_point_right_type.run()
-		console.log("type,pagesize",type,pagesize,pagenum,startTime,endTime)
+		console.log("type,pagesize",type,pagesize,pagenum)
 		const listData = await screen_point_right_list.run(
 			{
-				type:type ?? types[0].value,
+				type:type,
 				pagesize:pagesize ?? 20,
-				pagenum:pagenum ?? 1,
-				startTime:startTime,
-				endTime:endTime
+				pagenum:pagenum ?? 1
 			}
 		)
 		return {
 			// "selectType":RightSelectType.model.selectType || types[0].value,
-			"types": types,
+			"types": [{
+				"value": null,
+				"label": "全部"
+			},...types],
 			"listData":listData
 		}
 	},
@@ -46,7 +47,10 @@ export default {
 		)
 		return {
 			// "selectType":RightSelectType.model.selectType || types[0].value,
-			"types": types,
+			"types": [{
+				"value": null,
+				"label": "全部"
+			},...types],
 			"listData":listData
 		}
 	}

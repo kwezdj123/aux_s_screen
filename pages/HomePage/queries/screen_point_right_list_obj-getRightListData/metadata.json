@@ -15,12 +15,6 @@
         },
         {
           "name": "pagenum"
-        },
-        {
-          "name": "startTime"
-        },
-        {
-          "name": "endTime"
         }
       ],
       "paginationType": "NONE",

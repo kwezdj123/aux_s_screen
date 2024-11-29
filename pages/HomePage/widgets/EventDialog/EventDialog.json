@@ -2,14 +2,14 @@
   "animateLoading": true,
   "backgroundColor": "transparent",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 505,
+  "bottomRow": 482,
   "boxShadow": "none",
   "canEscapeKeyClose": true,
   "canOutsideClickClose": true,
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 670,
+      "bottomRow": 720,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -33,7 +33,7 @@
       "leftColumn": 0,
       "maxDynamicHeight": 9000,
       "minDynamicHeight": 4,
-      "minHeight": 676,
+      "minHeight": 722,
       "minWidth": 450,
       "mobileBottomRow": 240,
       "mobileLeftColumn": 0,
@@ -48,7 +48,7 @@
         "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
       },
       "parentColumnSpace": 1,
-      "parentId": "tg5g0k0wqr",
+      "parentId": "libdj9iohw",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -57,8 +57,8 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "byy5npx2oj",
-      "widgetName": "Canvas6Copy"
+      "widgetId": "6tqhm2sltk",
+      "widgetName": "Canvas6"
     }
   ],
   "detachFromLayout": true,
@@ -70,7 +70,7 @@
   ],
   "dynamicHeight": "FIXED",
   "dynamicTriggerPathList": [],
-  "height": 676,
+  "height": 722,
   "hideCard": false,
   "iconSVG": "/static/media/icon.47fe8500526372db96cb58a82187ffeb.svg",
   "isCanvas": true,
@@ -108,10 +108,10 @@
     "布局"
   ],
   "thumbnailSVG": "/static/media/thumbnail.c20e144182d9af35cde59e39d9afe632.svg",
-  "topRow": 65,
+  "topRow": 42,
   "type": "MODAL_WIDGET",
   "version": 2,
-  "widgetId": "tg5g0k0wqr",
-  "widgetName": "MarkerDialog",
-  "width": 1212
+  "widgetId": "libdj9iohw",
+  "widgetName": "EventDialog",
+  "width": 1184.6499999999999
 }

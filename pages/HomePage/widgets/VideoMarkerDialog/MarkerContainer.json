@@ -5,7 +5,7 @@
   "borderWidth": "1",
   "bottomRow": 64,
   "boxShadow": "none",
-  "close": "{{closeModal(MarkerDialog.name);}}",
+  "close": "{{closeModal(VideoMarkerDialog.name);}}",
   "defaultModel": "{\n\"data\":\"{{globalData.selectMarkerData}}\",\n\"history\":\"{{globalData.eventHistory}}\",\n\"videoUrl\":\"{{globalData.currentVideoURL}}\"\n}",
   "displayName": "自定义",
   "dynamicBindingPathList": [

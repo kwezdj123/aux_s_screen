@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "autoPlay": false,
+  "backgroundColor": "#000",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 96,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "displayName": "Video",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.fe5ef3670936349968c4e23591a873e1.svg",
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "onwzb6a6tw",
+  "leftColumn": 3,
+  "mobileBottomRow": 96,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 29,
+  "mobileTopRow": 68,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "parentColumnSpace": 29.390625,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 27,
+  "searchTags": [
+    "youtube"
+  ],
+  "tags": [
+    "媒体"
+  ],
+  "thumbnailSVG": "/static/media/thumbnail.92f170b89cd60e633eb4db597d822682.svg",
+  "topRow": 68,
+  "type": "VIDEO_WIDGET",
+  "url": "http://39.184.240.219:7086/live/cameraid/1000801%240/substream/1.m3u8",
+  "version": 1,
+  "widgetId": "43nn4gghqr",
+  "widgetName": "Video1"
+}
